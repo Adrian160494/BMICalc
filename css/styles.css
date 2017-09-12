@@ -3,3 +3,13 @@ body{
     background-size: 100%;
     background-attachment: fixed;
 }
+
+.headline{
+    font-family: 'Pacifico', cursive;
+}
+
+.font{
+    font-size: 20px;
+    color: black;
+
+}
