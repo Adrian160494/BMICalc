@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="" ng-app="app" >
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -14,9 +14,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="bootstrap/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
     <script src="js/angular.js"></script>
+    <script src="controllers/controller.js"></script>
 </head>
-<body>
-<div class="container-fluid">
+<body ng-controller="mainCtrl">
+<div class="container-fluid" >
     <div class="col-xs-12">
         <div class="well">
             <form class="form-inline text-center" ng-submit="logIn(user)">
@@ -31,7 +32,9 @@
     </div>
 </div>
 <div class="container">
-<div ng-view></div>
+<div ng-include="viewFlag ? 'View/calculate.php' : 'View/formBMR.php'">
+
+</div>
 </div>
 
 </body>

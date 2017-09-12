@@ -4,7 +4,7 @@
             <h1 class="headline">Calculate your BMR!</h1>
         </div>
         <div class="panel-body">
-            <form class="form-horizontal" ng-submit="calculate(data)">
+            <form class="form-horizontal" novalidate >
                 <div class="form-group">
                     <div class="col-xs-4 text-right">
                         <label class="font">Sex:</label>
@@ -45,18 +45,18 @@
                         <label class="font">Activity:</label>
                     </div>
                     <div class="col-xs-8 text-center">
-                        <select name="activity" class="form-control" ng-model="data.activity">
-                            <option>1.0</option>
-                            <option>1.2</option>
-                            <option>1.4</option>
-                            <option>1.6</option>
-                            <option>1.8</option>
-                            <option>2.0</option>
+                        <select name="activity" class="form-control" ng-model="data.activity" ng>
+                            <optgroup  label="Select something">Select something</optgroup>
+                            <option class="active">1.0 - lack of activity</option>
+                            <option>1.2 - low activity (1-2 trainings in week)</option>
+                            <option>1.4 - middle activity(3-4 trainings in week)</option>
+                            <option>1.6 - high activity(physical work and 3-4 trainings in week)</option>
+                            <option>1.8/2.0 - very high activity</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group text-center">
-                    <button class="btn btn-primary" type="submit">Calculate</button>
+                    <button class="btn btn-primary" ng-click="calculate(data)" type="button">Calculate</button>
                     <button class="btn btn-danger" type="reset">Reset</button>
                 </div>
             </form>
