@@ -19,10 +19,10 @@
 <div class="container-fluid">
     <div class="col-xs-12">
         <div class="well">
-            <form class="form-inline text-center">
+            <form class="form-inline text-center" ng-submit="logIn(user)">
                 <div class="form-group">
-                    <input class="form-control" type="text" name="login" placeholder="Login"/>
-                    <input class="form-control" type="text" name="password" placeholder="Password"/>
+                    <input class="form-control" type="text" name="login" placeholder="Login" ng-model="user.login"/>
+                    <input class="form-control" type="text" name="password" placeholder="Password" ng-model="user.password"/>
                     <button type="submit" class="btn btn-success" >Log In</button>
                     <button type="reset" class="btn btn-danger">Reset</button>
                 </div>
@@ -31,74 +31,7 @@
     </div>
 </div>
 <div class="container">
-    <div class="col-md-offset-2 col-md-8 col-xs-12">
-        <div class="panel panel-default">
-            <div class="panel-heading text-center">
-                <h1 class="headline">Calculate your BMR!</h1>
-            </div>
-            <div class="panel-body">
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <div class="col-xs-4 text-right">
-                            <label class="font">Sex:</label>
-                        </div>
-                        <div class="col-xs-8 text-center">
-                            <select class="form-control">
-                                <option>Male</option>
-                                <option>Female</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-xs-4 text-right">
-                            <label class="font">Weight(kg):</label>
-                        </div>
-                        <div class="col-xs-8 text-center">
-                            <input class="form-control" type="number" name="weight" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-xs-4 text-right">
-                            <label class="font">Height(cm):</label>
-                        </div>
-                        <div class="col-xs-8 text-center">
-                            <input class="form-control" type="number" name="weight" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-xs-4 text-right">
-                            <label class="font">Age: </label>
-                        </div>
-                        <div class="col-xs-8 text-center">
-                            <input class="form-control" type="number" name="weight" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-xs-4 text-right">
-                            <label class="font">Activity:</label>
-                        </div>
-                        <div class="col-xs-8 text-center">
-                            <select class="form-control">
-                                <option>1.0</option>
-                                <option>1.2</option>
-                                <option>1.4</option>
-                                <option>1.6</option>
-                                <option>1.8</option>
-                                <option>2.0</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group text-center">
-                        <button class="btn btn-primary" type="submit">Calculate</button>
-                        <button class="btn btn-danger" type="reset">Reset</button>
-                    </div>
-                </form>
-            </div>
-            <div class="panel-footer">
-
-            </div>
-        </div>
-    </div>
+<div ng-view></div>
 </div>
 
 </body>
