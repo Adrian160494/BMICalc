@@ -23,8 +23,8 @@
 <body ng-controller="mainCtrl">
 <div class="container-fluid" >
     <div class="col-xs-12">
-        <div class="well" id="loginForm">
-            <form class="form-inline text-center" ng-submit="logIn(user)">
+        <div class="well" id="borderForm">
+            <form class="form-inline text-center" ng-submit="logIn(user)"  id="loginForm">
                 <div class="form-group">
                     <input class="form-control" type="text" name="login" placeholder="Login" ng-model="user.login"/>
                     <input class="form-control" type="text" name="password" placeholder="Password" ng-model="user.password"/>
@@ -32,8 +32,10 @@
                     <button type="reset" class="btn btn-danger">Reset</button>
                 </div>
             </form>
+            <div class="text-center"><span style="font-size: 20px" class="glyphicon glyphicon-registration-mark"><a href="registerForm.php" style="font-size: 20px">Registration</a></span></div>
+            <div id="buttonShowHide" class="btn btn-default" ng-click="showLogin()"><span id="showHide" class="glyphicon glyphicon-arrow-down"></span></div>
         </div>
-        <div id="buttonShowHide" class="btn btn-default" ng-click="showLogin()"><span id="showHide" class="glyphicon glyphicon-arrow-down"></span></div>
+
     </div>
 </div>
 <div class="container">

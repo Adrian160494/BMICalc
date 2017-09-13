@@ -34,5 +34,19 @@ app.controller('mainCtrl',function ($scope, $http) {
         } else{
             $scope.showHide.removeClass("glyphicon-arrow-down").addClass("glyphicon-arrow-up");
         }
-    }
+    };
+
+    $scope.addNewUser = function (newUser) {
+        $http.get("PHP/register.php",{params:{userLogin: newUser.login,userPassword: newUser.password, userConfirmPassword: newUser.confirmPassword, userEmail: newUser.email}}).then(function (response) {
+            $scope.newUserData = response.data;
+            console.log($scope.newUserData);
+            if($scope.newUserData.length<10){
+                $scope.information = "Creating the new account succesfull!";
+                $scope.errorFlag = false;
+            }else {
+                $scope.registerError = response.data;
+                $scope.errorFlag = true;
+            }
+        })
+    };
 });
