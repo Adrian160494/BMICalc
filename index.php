@@ -3,12 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <!--CSS files-->
     <link rel="stylesheet" href="css/styles.css"/>
     <link rel="stylesheet" href="bootstrap/bootstrap-3.3.7-dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="bootstrap/bootstrap-3.3.7-dist/css/bootstrap-theme.css"/>
+    <!--Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
     <!--JS Files-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -20,7 +23,7 @@
 <body ng-controller="mainCtrl">
 <div class="container-fluid" >
     <div class="col-xs-12">
-        <div class="well">
+        <div class="well" id="loginForm">
             <form class="form-inline text-center" ng-submit="logIn(user)">
                 <div class="form-group">
                     <input class="form-control" type="text" name="login" placeholder="Login" ng-model="user.login"/>
@@ -30,6 +33,7 @@
                 </div>
             </form>
         </div>
+        <div id="buttonShowHide" class="btn btn-default" ng-click="showLogin()"><span id="showHide" class="glyphicon glyphicon-arrow-down"></span></div>
     </div>
 </div>
 <div class="container">

@@ -1,3 +1,24 @@
+@media screen and (max-width: 501px){
+    #loginForm{
+        display: none;
+    }
+
+    #buttonShowHide{
+        display: block;
+    }
+}
+
+@media screen and (min-width: 500px){
+    #loginForm{
+        display: block;
+    }
+    #buttonShowHide{
+        display: none;
+    }
+}
+
+
+
 body{
     background-image: url("../img/OF18NR0.jpg");
     background-attachment: inherit;
@@ -8,8 +29,13 @@ body{
     font-family: 'Pacifico', cursive;
 }
 
-.font{
+.font, p{
     font-size: 20px;
     color: black;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+#loginForm{
+    border:2px solid black;
 
 }
