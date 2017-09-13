@@ -14,6 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="bootstrap/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
     <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
     <script src="controllers/controller.js"></script>
 </head>
 <body ng-controller="mainCtrl">

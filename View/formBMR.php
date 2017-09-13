@@ -11,8 +11,8 @@
                     </div>
                     <div class="col-xs-8 text-center">
                         <select class="form-control" ng-model="data.sex">
-                            <option>Male</option>
-                            <option>Female</option>
+                            <option selected valee="Male">Male</option>
+                            <option value="Female">Female</option>
                         </select>
                     </div>
                 </div>
@@ -45,13 +45,12 @@
                         <label class="font">Activity:</label>
                     </div>
                     <div class="col-xs-8 text-center">
-                        <select name="activity" class="form-control" ng-model="data.activity" ng>
-                            <optgroup  label="Select something">Select something</optgroup>
-                            <option class="active">1.0 - lack of activity</option>
-                            <option>1.2 - low activity (1-2 trainings in week)</option>
-                            <option>1.4 - middle activity(3-4 trainings in week)</option>
-                            <option>1.6 - high activity(physical work and 3-4 trainings in week)</option>
-                            <option>1.8/2.0 - very high activity</option>
+                        <select name="activity" class="form-control" ng-model="data.activity">
+                            <option value="1.0">1.0 - lack of activity</option>
+                            <option value="1.2">1.2 - low activity (1-2 trainings in week)</option>
+                            <option value="1.4">1.4 - middle activity(3-4 trainings in week) </option>
+                            <option value="1.6">1.6 - high activity(physical work and 3-4 trainings in week)</option>
+                            <option value="1.9">1.8/2.0 - very high activity</option>
                         </select>
                     </div>
                 </div>

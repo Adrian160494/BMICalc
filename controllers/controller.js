@@ -1,4 +1,10 @@
-var app = angular.module('app',[]);
+var app = angular.module('app',["ngRoute"]);
+
+app.config(function ($routeProvider) {
+    $routeProvider.when("/main",{
+        templateUrl: "index.php"
+    });
+});
 
 app.controller('mainCtrl',function ($scope, $http) {
 
@@ -6,9 +12,10 @@ app.controller('mainCtrl',function ($scope, $http) {
 
     $scope.calculate = function (data) {
         console.log(data);
-        $http.get("PHP/calculateC.php",{params:{sex: data.sex, weight: data.weight, height: data.height, age: data.age, activity: data.activity}})
+        $http.post("PHP/calculateC.php",{params:{sex: data.sex, weight: data.weight, height: data.height, age: data.age, activity: data.activity}})
             .then(function (response) {
-                $scope.data = response.text;
+                $scope.calculations = response.data;
+                console.log($scope.calculations);
                 $scope.viewFlag = true;
             })
     }
