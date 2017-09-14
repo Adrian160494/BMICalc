@@ -1,13 +1,22 @@
-<div class="panel panel-info">
-    <div class="panel-heading text-center">
+<div class="page-header text-center" style="color: white" ng-show="loginPanel">
+    <h1>BMR calculator!</h1>
+</div>
+<div class="text-center" style="color: white" ng-show="loginPanel" ng-hide="loginPanel">
+    <h1>You don't have account? You can only calculate your BMR</h1>
+    <h3>If you want to get access to all functions just create the account!</h3>
+</div>
+<div class="navigation">
+    <div class="navigation-header text-center">
         <h2 class="headline">Your result is: </h2>
     </div>
-    <div class="panel-body">
-        <p>Your basic caloric need: {{calculations[0]}} kcal!</p>
+    <div class="navigation-body">
+        <p>Your basic caloric need: <span class="white">{{calculations[0]}}</span> kcal!</p>
 
-        <p>You need: {{calculations[1]}} kcal to maintain your weight!</p>
+        <p>You need: <span class="white"> {{calculations[1]}}</span> kcal to maintain your weight!</p>
     </div>
-    <div class="panel-footer text-center">
+    <div class="navigation-footer text-center">
         <p>Do your best!</p>
+        <button class="btn btn-default" type="button" ng-show="loginPanel" ng-click="addToHistory()">Add to history</button>
+        <span class="bg-success" ng-show="information2">{{information2}}</span>
     </div>
 </div>

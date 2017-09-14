@@ -20,17 +20,16 @@
     <script src="js/angular-route.js"></script>
     <script src="controllers/controller.js"></script>
 </head>
-<body ng-controller="mainCtrl">
+<body ng-controller="mainCtrl" ng-cloak>
 <div class="container">
-    <div class="panel panel-success">
-        <div class="panel-heading text-center">
+    <div class="navigation">
+        <div class="navigation-header text-center">
             <h2 class="headline">Create new account!</h2>
         </div>
-        <div class="panel-body">
+        <div class="navigation-body">
             <form name="myForm" class="form-horizontal" novalidate ng-submit="addNewUser(newUser)">
-                <div class="col-xs-offset-2 col-xs-8">
                     <div class="form-group">
-                        <div class="col-xs-4">
+                        <div class="col-xs-4 text-right">
                             <label class="font">Login: </label>
                         </div>
                         <div class="col-xs-8">
@@ -39,7 +38,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-xs-4">
+                        <div class="col-xs-4 text-right">
                             <label class="font">Password: </label>
                         </div>
                         <div class="col-xs-8">
@@ -48,7 +47,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-xs-4">
+                        <div class="col-xs-4 text-right">
                             <label class="font">Email: </label>
                         </div>
                         <div class="col-xs-8">
@@ -63,8 +62,12 @@
                         <p><span class="" ng-show="information">{{information}}{{return}}</span></p>
                         <p><span class="label label-info font" ng-show="information"><a href="index.php">Return to Home Page!</a></span></p>
                     </div>
-                </div>
             </form>
+        </div>
+        <div class="navigation-footer text-center">
+            <div class="btn btn-info ">
+                <a href="index.php">Return <span class="glyphicon glyphicon-arrow-right"></span></a>
+            </div>
         </div>
 
     </div>

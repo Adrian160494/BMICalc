@@ -3,10 +3,13 @@ var app = angular.module('app',["ngRoute"]);
 app.config(function ($routeProvider) {
 
     $routeProvider.when("/",{
-        templateUrl: '/index.php'
+        templateUrl: 'index.php'
     });
     $routeProvider.when("/register",{
-        templateUrl: '/registerForm.pxp'
+        templateUrl: 'registerForm.pxp'
+    });
+    $routeProvider.when("/history",{
+        templateUrl: 'View/history.php'
     })
 });
 
@@ -14,6 +17,11 @@ app.controller('mainCtrl',function ($scope, $http, $location) {
 
     $scope.viewFlag = false;
     $scope.loginPanel = false;
+    $scope.calculations = null;
+
+    $http.get("PHP/getDataToHistory.php").then(function (response) {
+        $scope.dataToHistory = response.data;
+    })
 
     $scope.calculate = function (data) {
         console.log(data);
@@ -76,5 +84,17 @@ app.controller('mainCtrl',function ($scope, $http, $location) {
         });
         return $scope.loginPanel;
     };
+
+    $scope.addToHistory = function () {
+        console.log("sirma");
+        $http.get("PHP/addToHistory.php",{params:{bmr: $scope.calculations[0],dayBMR: $scope.calculations[1]}}).then(function (response) {
+            console.log(response.data);
+            if(response.data==true){
+                $scope.information2= "Added to history!";
+            }
+
+        })
+    };
+
 
 });

@@ -1,5 +1,5 @@
 <div>
-    <div class="page-header text-center" style="color: white" ng-show="loginPanel">
+    <div class="page-header text-center text-capitalize" style="color: white" ng-show="loginPanel">
         <h1>BMR calculator!</h1>
     </div>
     <div class="text-center" style="color: white" ng-show="loginPanel" ng-hide="loginPanel">
@@ -65,7 +65,6 @@
                     <div class="form-group text-center">
                         <button class="btn btn-primary" type="submit">Calculate</button>
                         <button class="btn btn-danger" type="reset">Reset</button>
-                        <button class="btn btn-default" type="button" ng-show="loginPanel">Add to history</button>
                     </div>
                 </form>
             </div>
