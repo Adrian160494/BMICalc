@@ -1,5 +1,7 @@
 <?php
 
+require_once "dataBase.php";
+
 session_start();
 
 
@@ -9,26 +11,25 @@ $email = $_GET['userEmail'];
 
 try{
     $db = new mysqli($host,$db_user,$db_password,$db_name);
-    $sql = "SELECT * FROM "
+    $sql = "SELECT * FROM users WHERE login='".$login."'";
+    $sql2 = "SELECT * FROM users WHERE email='".$email."'";
 
-    if($resultLogin->num_rows>0){
+    $result1 = $db->query($sql);
+    $result2 = $db->query($sql2);
+
+
+    if($result1->num_rows>0){
         echo "There is the user in database with the same login!";
         exit;
     } else{
-        $resultEmail = $db->searchUserWithEmail($db_connect,$email);
-        if($resultEmail->num_rows>0){
+        if($result2->num_rows>0){
             echo "There is the user in the database with the same email!";
             exit;
         } else{
-            if($password != $passwordConf){
-                echo "The passwords are not the same!";
-                exit;
-            } else{
-                $_SESSION['newUserLogin'] = $login;
-                $_SESSION['newUserEmail'] = $email;
-                $resultAdd = $db->addNewUser($db_connect,$login,$password,$email);
-                echo "Done";
-            }
+            $passwordHash = password_hash($password,PASSWORD_DEFAULT);
+           $sql3 = "INSERT INTO users(login,password,email) VALUES ('$login','$passwordHash','$email')";
+           $resultAdd= $db->query($sql3);
+           echo "Done";
         }
     }
 } catch (mysqli_sql_exception $e){

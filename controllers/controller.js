@@ -1,15 +1,19 @@
 var app = angular.module('app',["ngRoute"]);
 
 app.config(function ($routeProvider) {
-    $routeProvider.when("/main",{
-        templateUrl: "index.php"
+
+    $routeProvider.when("/",{
+        templateUrl: '/index.php'
     });
+    $routeProvider.when("/register",{
+        templateUrl: '/registerForm.pxp'
+    })
 });
 
-app.controller('mainCtrl',function ($scope, $http) {
+app.controller('mainCtrl',function ($scope, $http, $location) {
 
-    $scope.dane = {sex: "male",weight:96,height:192,age:23,activity:1.4};
     $scope.viewFlag = false;
+    $scope.loginPanel = false;
 
     $scope.calculate = function (data) {
         console.log(data);
@@ -49,4 +53,28 @@ app.controller('mainCtrl',function ($scope, $http) {
             }
         })
     };
+
+    $scope.logIn = function (user) {
+        $scope.error = null;
+        $http.get("PHP/logIn.php",{params:{userLogin: user.login, userPassword: user.password}})
+            .then(function (response) {
+                $scope.answer = response.data;
+                console.log($scope.answer);
+                if(angular.isDefined($scope.answer['login'])){
+                    $scope.loginPanel = true;
+                    $location.path("/");
+                } else{
+                    $scope.error = $scope.answer;
+                }
+            })
+    };
+
+    $scope.checkPanel = function () {
+        $http.get("PHP/checkLogIn.php").then(function (response) {
+            $scope.loginPanel= response.data;
+            console.log($scope.loginPanel);
+        });
+        return $scope.loginPanel;
+    };
+
 });

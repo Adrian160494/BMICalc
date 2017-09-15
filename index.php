@@ -12,6 +12,7 @@
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
     <!--JS Files-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -20,28 +21,54 @@
     <script src="js/angular-route.js"></script>
     <script src="controllers/controller.js"></script>
 </head>
-<body ng-controller="mainCtrl">
-<div class="container-fluid" >
+<body ng-controller="mainCtrl" ng-init="checkPanel()">
+<div class="container-fluid">
     <div class="col-xs-12">
-        <div class="well" id="borderForm">
-            <form class="form-inline text-center" ng-submit="logIn(user)"  id="loginForm">
-                <div class="form-group">
-                    <input class="form-control" type="text" name="login" placeholder="Login" ng-model="user.login"/>
-                    <input class="form-control" type="text" name="password" placeholder="Password" ng-model="user.password"/>
-                    <button type="submit" class="btn btn-success" >Log In</button>
-                    <button type="reset" class="btn btn-danger">Reset</button>
-                </div>
-            </form>
-            <div class="text-center"><span style="font-size: 20px" class="glyphicon glyphicon-registration-mark"><a href="registerForm.php" style="font-size: 20px">Registration</a></span></div>
-            <div id="buttonShowHide" class="btn btn-default" ng-click="showLogin()"><span id="showHide" class="glyphicon glyphicon-arrow-down"></span></div>
+        <div class="" id="borderForm">
+            <div ng-include="loginPanel ? 'View/loggedIn.php' : 'View/panelLogin.php'"></div>
+            <div id="buttonShowHide" class="btn btn-default" ng-hide="loginPanel" ng-click="showLogin()"><span id="showHide" class="glyphicon glyphicon-arrow-down"></span></div>
         </div>
-
     </div>
 </div>
-<div class="container">
+<hr>
+<div id="banner" ng-hide="loginPanel">
+    <div class="center-wrap">
+        <div class="button">
+            <a href="registerForm.php">Register Now<span class="shift"><span class="glyphicon glyphicon-arrow-right"</span></a>
+            <div class="mask"></div>
+        </div>
+    </div>
+    <figure>
+        <img src="img/banner.jpg" alt="doesn't word" width="100%"/>
+        <hr>
+    </figure>
+</div>
+<div class="container-fluid">
+    <div class="navbar-inverse" ng-show="loginPanel">
+        <div class="navbar-header">
+            <span class="navHead">It's Your Life</span>
+            <button type="button" data-toggle="collapse" data-target="#navigation" class="navbar-toggle" >
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navigation">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active liFont"><a href="!#/">Home</a></li>
+                <li class="liFont"><a href="!#/history">History</a></li>
+                <li class="liFont"><a href="!#/training">Training Plan</a></li>
+                <li class="liFont"><a href="!#/diet">Diet</a></li>
+                <li class="liFont"><a href="!#/contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
 <div ng-include="viewFlag ? 'View/calculate.php' : 'View/formBMR.php'">
 
 </div>
+</div>
+<div class="footer text-center">
+    Copyright Adrian Ciejka <span class="glyphicon glyphicon-copyright-mark"></span>
 </div>
 
 </body>

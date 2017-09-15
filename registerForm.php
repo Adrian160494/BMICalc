@@ -60,7 +60,8 @@
                         <button type="submit" class="btn btn-success" ng-disabled="myForm.$invalid" >Register</button>
                         <button type="reset" class="btn btn-danger">Reset</button>
                         <span class="alert-danger" ng-show="errorFlag">{{registerError}}</span>
-                        <span class="alert-success" ng-show="information">{{information}}</span>
+                        <p><span class="" ng-show="information">{{information}}{{return}}</span></p>
+                        <p><span class="label label-info font" ng-show="information"><a href="index.php">Return to Home Page!</a></span></p>
                     </div>
                 </div>
             </form>
