@@ -23,7 +23,6 @@
     <script src="controllers/controller.js"></script>
 </head>
 <body ng-controller="mainCtrl" ng-init="checkPanel()" ng-cloak>
-<div id="wrapper">
     <div class="container-fluid">
         <div class="col-xs-12">
             <div class="" id="borderForm">
@@ -47,7 +46,7 @@
     </div>
     <div class="container-fluid">
         <div class="navbar-inverse" ng-show="loginPanel">
-            <div class="navbar-header">
+             <div class="navbar-header">
                 <span class="navHead">It's your life</span>
                 <button type="button" data-toggle="collapse" data-target="#navigation" class="navbar-toggle" >
                     <span class="icon-bar"></span>
@@ -57,18 +56,18 @@
             </div>
             <div class="collapse navbar-collapse" id="navigation">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active liFont"><a href="!#/">Home</a></li>
-                    <li class="liFont"><a href="!#/history">History</a></li>
-                    <li class="liFont"><a href="!#/training">Training Plan</a></li>
-                    <li class="liFont"><a href="!#/diet">Diet</a></li>
+                    <li class="liFont nav-tabs"><a href="" ng-click="chooseView(1)">Home</a> </li>
+                    <li class="liFont"><a href="" ng-click="chooseView(2)">History</a></li>
+                    <li class="liFont"><a href="" ng-click="chooseView(3)">Training</a></li>
+                    <li class="liFont"><a href="" ng-click="chooseView(4)">Diet</a></li>
                 </ul>
             </div>
         </div>
-        <div ng-include="viewFlag ? 'View/calculate.php' : 'View/formBMR.php'">
+        <div ng-hide="loginPanel" ng-include="viewFlag ? 'View/calculate.php' : 'View/formBMR.php'">
+        </div>
+        <div ng-show="loginPanel" ng-include="includeView">
         </div>
     </div>
-</div>
-    <hr>
     <div class="footer">
         <div class="btn-group">
             <a href="https://www.facebook.com/adr.ian.395017"><img src="img/face2.png"/></a>
@@ -78,14 +77,10 @@
         <p id="copyright">Copyright by Adrian Ciejka <span class="glyphicon glyphicon-copyright-mark"></span></p>
     </div>
 <script>
-    var position2 = $('.navbar-inverse').innerHeight;
-    $(window).bind('scroll', function () {
-        if ($(window).scrollTop() > position2) {
-            $('.navbar-inverse').addClass('fixed');
-        } else {
-            $('.navbar-inverse').removeClass('fixed');
-        }
-    });
+    if($(window).scrollTop==0){
+        $('.footer').css("position",'absolute');
+        $('.footer').css("bottom",'0');
+    }
 </script>
 </body>
 </html>

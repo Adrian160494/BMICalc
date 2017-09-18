@@ -2,14 +2,17 @@ var app = angular.module('app',["ngRoute"]);
 
 app.config(function ($routeProvider) {
 
-    $routeProvider.when("/",{
-        templateUrl: 'index.php'
+    $routeProvider.when('/',{
+        templateUrl: 'View/formBMR.php'
     });
     $routeProvider.when("/register",{
         templateUrl: 'registerForm.pxp'
     });
     $routeProvider.when("/history",{
         templateUrl: 'View/history.php'
+    });
+    $routeProvider.otherwise({
+        redirectTo: '/'
     })
 });
 
@@ -18,18 +21,21 @@ app.controller('mainCtrl',function ($scope, $http, $location) {
     $scope.viewFlag = false;
     $scope.loginPanel = false;
     $scope.calculations = null;
+    $scope.includeView = 'View/formBMR.php';
+    $scope.dataToHistory = null;
 
-    $http.get("PHP/getDataToHistory.php").then(function (response) {
-        $scope.dataToHistory = response.data;
-    })
+    $scope.getDataOfHistory = function () {
+        $http.get("PHP/getDataToHistory.php").then(function (response) {
+            $scope.dataToHistory = response.data;
+        });
+    };
 
     $scope.calculate = function (data) {
-        console.log(data);
         $http.get("PHP/calculateC.php",{params:{dataSex: data.sex, dataWeight: data.weight, dataHeight: data.height, dataAge: data.age, dataActivity: data.activity}})
             .then(function (response) {
                 $scope.calculations = response.data;
-                console.log($scope.calculations);
                 $scope.viewFlag = true;
+                $scope.includeView = 'View/calculate.php';
             })
     };
 
@@ -51,7 +57,6 @@ app.controller('mainCtrl',function ($scope, $http, $location) {
     $scope.addNewUser = function (newUser) {
         $http.get("PHP/register.php",{params:{userLogin: newUser.login,userPassword: newUser.password, userConfirmPassword: newUser.confirmPassword, userEmail: newUser.email}}).then(function (response) {
             $scope.newUserData = response.data;
-            console.log($scope.newUserData);
             if($scope.newUserData.length<10){
                 $scope.information = "Creating the new account succesfull!";
                 $scope.errorFlag = false;
@@ -67,7 +72,6 @@ app.controller('mainCtrl',function ($scope, $http, $location) {
         $http.get("PHP/logIn.php",{params:{userLogin: user.login, userPassword: user.password}})
             .then(function (response) {
                 $scope.answer = response.data;
-                console.log($scope.answer);
                 if(angular.isDefined($scope.answer['login'])){
                     $scope.loginPanel = true;
                     $location.path("/");
@@ -80,21 +84,42 @@ app.controller('mainCtrl',function ($scope, $http, $location) {
     $scope.checkPanel = function () {
         $http.get("PHP/checkLogIn.php").then(function (response) {
             $scope.loginPanel= response.data;
-            console.log($scope.loginPanel);
         });
         return $scope.loginPanel;
     };
 
     $scope.addToHistory = function () {
-        console.log("sirma");
         $http.get("PHP/addToHistory.php",{params:{bmr: $scope.calculations[0],dayBMR: $scope.calculations[1]}}).then(function (response) {
-            console.log(response.data);
             if(response.data==true){
+                $scope.getDataOfHistory();
                 $scope.information2= "Added to history!";
             }
-
-        })
+        });
     };
+
+    $scope.chooseView = function (text) {
+        switch(text){
+            case 1:
+                $scope.includeView = 'View/formBMR.php';
+                break;
+            case 2:
+                $scope.getDataOfHistory();
+                $scope.includeView = 'View/history.php';
+                break;
+            case 3:
+                $scope.includeView = 'View/training.php';
+                break;
+            case 4:
+                $scope.includeView = 'View/diet.php';
+                break;
+        }
+    };
+
+    $scope.remove = function (id) {
+        $http.get("PHP/deleteElement.php",{params:{id:id}}).then(function (response) {
+            $scope.getDataOfHistory();
+        });
+    }
 
 
 });

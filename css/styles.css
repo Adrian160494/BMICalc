@@ -1,3 +1,9 @@
+@media screen and(max-width: 500px){
+    .button{
+        font-size: 12px;
+    }
+}
+
 @media screen and (max-width: 501px){
     #loginForm{
         display: none;
@@ -30,6 +36,17 @@
         top:30px;
     }
 
+    .card{
+        position: relative;
+        width:300px;
+    }
+
+    .description{
+        position: absolute;
+        top: 20%;
+        left:21%;
+
+    }
 
 }
 
@@ -48,7 +65,7 @@
         height: 5%;
     }
     .footer{
-        background-image: url("../img/footer2.png");
+        background-color: rgba(100,100,100,0.5);
         height:100px;
         position: relative;
         bottom:0;
@@ -63,6 +80,19 @@
     .btn-group a img{
         width: 30px;
         margin: 0 10px;
+    }
+
+    .card{
+        position: relative;
+        width:400px;
+    }
+
+    .description{
+        position: absolute;
+        top: 20%;
+        left:21%;
+
+
     }
 }
 
@@ -98,15 +128,12 @@
         top:30px;
     }
 }
-#wrapper{
-    position: relative;
-    height: 100%;
-}
 
 body{
     background-image: url("../img/background.jpg");
     background-attachment: inherit;
     background-size: cover;
+    height:100%;
 }
 li{
     font-size: 20px;
@@ -150,16 +177,6 @@ table td{
     position: relative;
 }
 
-
-.center-wrap {
-
-}
-
-@media screen and(max-width: 500px){
-    .button{
-        font-size: 12px;
-    }
-}
 
 .button {
     background: none center center no-repeat;
@@ -262,7 +279,7 @@ button {
     line-height: 1;
     margin: 0.5em;
     padding: 0.5em 1em;
-    color: white;
+    color: yellow;
     -webkit-transition: 0.25s;
     transition: 0.25s;
 }
@@ -311,7 +328,4 @@ td{
 .white {
     color: white;
 
-}
-.card{
-    background-image: url("../img/card2.png");
 }
