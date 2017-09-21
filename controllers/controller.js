@@ -16,6 +16,30 @@ app.config(function ($routeProvider) {
     })
 });
 
+app.directive("createCalendar",function () {
+    return function (scope,element,attrs) {
+        var div = angular.element('<div>');
+        var numberOfDays = scope.numberOfDays;
+        div.addClass("col-xs-12 text-center");
+        //var number = scope[attrs["monthToday"]];
+        console.log(numberOfDays);
+        for(var i=0;i<numberOfDays;i++){
+            var div2 = angular.element("<div>");
+            div2.addClass("col-xs-12");
+            div2.css({
+                width: "200px",
+                height: "200px",
+                backgroundColor: "rgba(250,250,250,0.5)",
+                margin :"5px"
+            });
+            div2.text(i+1);
+            div.append(div2);
+        }
+        element.append(div);
+    }
+});
+
+
 app.controller('mainCtrl',function ($scope, $http, $location) {
 
     $scope.viewFlag = false;
@@ -23,6 +47,53 @@ app.controller('mainCtrl',function ($scope, $http, $location) {
     $scope.calculations = null;
     $scope.includeView = 'View/formBMR.php';
     $scope.dataToHistory = null;
+    $scope.today = new Date();
+    $scope.monthToday = $scope.today.getMonth();
+
+    $scope.initFunction = function () {
+        $http.get("CallendarData.json").success(function (response) {
+            $scope.dataCalendar = response;
+            $scope.numberOfDays = $scope.dataCalendar[$scope.monthToday].numberOfDays;
+        });
+        $('#callendar').html($scope.callendar);
+        $scope.checkPanel();
+        $scope.getCallendar();
+    };
+
+    $scope.getCallendar = function (month) {
+        var now = new Date();
+        var data = new Date(now.getUTCFullYear(),month,1,0,0,0);
+        $scope.firstDayOfMonth = data.getDay();
+        console.log(data);
+        console.log($scope.firstDayOfMonth);
+
+        $http.get("PHP/createCallendar.php",{params:{numberOfDays: $scope.numberOfDays, month: month, firstDayOfMonth: $scope.firstDayOfMonth}}).success(function (data) {
+            $scope.callendar = data;
+            console.log($scope.callendar);
+            $('#callendar').html($scope.callendar);
+        })
+    };
+
+    $scope.prevCalendar= function () {
+        if($scope.monthToday>0){
+            $scope.monthToday--;
+            $scope.numberOfDays = $scope.dataCalendar[$scope.monthToday].numberOfDays;
+            $scope.getCallendar($scope.monthToday);
+        }
+    };
+
+    $scope.nextCalendar = function () {
+        if($scope.monthToday<11){
+            $scope.monthToday++;
+            $scope.numberOfDays = $scope.dataCalendar[$scope.monthToday].numberOfDays;
+            $scope.getCallendar($scope.monthToday);
+        }
+    };
+
+    $scope.showCallendar = function () {
+        $scope.numberOfDays = $scope.dataCalendar[$scope.monthToday].numberOfDays;
+        $scope.getCallendar($scope.monthToday);
+    };
 
     $scope.getDataOfHistory = function () {
         $http.get("PHP/getDataToHistory.php").then(function (response) {
@@ -107,6 +178,7 @@ app.controller('mainCtrl',function ($scope, $http, $location) {
                 $scope.includeView = 'View/history.php';
                 break;
             case 3:
+                $scope.showCallendar();
                 $scope.includeView = 'View/training.php';
                 break;
             case 4:
@@ -119,7 +191,15 @@ app.controller('mainCtrl',function ($scope, $http, $location) {
         $http.get("PHP/deleteElement.php",{params:{id:id}}).then(function (response) {
             $scope.getDataOfHistory();
         });
+    };
+    
+    $scope.addNewTrening = function () {
+       console.log("Siema");
     }
 
 
 });
+
+function addNewTrening(day,month) {
+    console.log(day+" , "+month);
+}

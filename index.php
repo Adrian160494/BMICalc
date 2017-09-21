@@ -22,7 +22,8 @@
     <script src="js/angular-route.js"></script>
     <script src="controllers/controller.js"></script>
 </head>
-<body ng-controller="mainCtrl" ng-init="checkPanel()" ng-cloak>
+<body ng-controller="mainCtrl" ng-init="initFunction()" ng-cloak>
+<div class="wrapper">
     <div class="container-fluid">
         <div class="col-xs-12">
             <div class="" id="borderForm">
@@ -46,7 +47,7 @@
     </div>
     <div class="container-fluid">
         <div class="navbar-inverse" ng-show="loginPanel">
-             <div class="navbar-header">
+            <div class="navbar-header">
                 <span class="navHead">It's your life</span>
                 <button type="button" data-toggle="collapse" data-target="#navigation" class="navbar-toggle" >
                     <span class="icon-bar"></span>
@@ -68,19 +69,17 @@
         <div ng-show="loginPanel" ng-include="includeView">
         </div>
     </div>
+</div>
     <div class="footer">
-        <div class="btn-group">
-            <a href="https://www.facebook.com/adr.ian.395017"><img src="img/face2.png"/></a>
-            <a href="#"><img src="img/twit2.png"/></a>
-            <a href="#"><img src="img/insta.png"/></a>
+        <br/>
+        <div class="text-left">
+            <a href="https://www.facebook.com/adr.ian.395017"><img src="img/face2.png" width="2%"/></a>
+            <a href="#"><img src="img/twit2.png" width="2%"/></a>
+            <a href="#"><img src="img/insta.png" width="2%"/></a>
         </div>
-        <p id="copyright">Copyright by Adrian Ciejka <span class="glyphicon glyphicon-copyright-mark"></span></p>
+        <div class="text-left">
+            <span>Copyright by Adrian Ciejka <span class="glyphicon glyphicon-copyright-mark"></span></span>
+        </div>
     </div>
-<script>
-    if($(window).scrollTop==0){
-        $('.footer').css("position",'absolute');
-        $('.footer').css("bottom",'0');
-    }
-</script>
 </body>
 </html>
