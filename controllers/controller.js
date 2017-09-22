@@ -192,14 +192,20 @@ app.controller('mainCtrl',function ($scope, $http, $location) {
             $scope.getDataOfHistory();
         });
     };
-    
-    $scope.addNewTrening = function () {
-       console.log("Siema");
-    }
-
 
 });
 
 function addNewTrening(day,month) {
-    console.log(day+" , "+month);
+    console.log("dzialam");
+    var XHR = new XMLHttpRequest();
+    XHR.open("GET","redirectToAdder.php?day="+day+",month="+month,true);
+    XHR.send(null);
+    XHR.onreadystatechange = function () {
+        if(XHR.readyState===4){
+            if(XHR.status===200){
+            console.log("Done");
+            }
+        }
+    }
+
 }

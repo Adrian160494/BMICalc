@@ -3,11 +3,12 @@ $numberOfDays = $_GET['numberOfDays'];
 $month = $_GET['month'];
 $firstDayOfMonth = $_GET['firstDayOfMonth'];
 
-$arraysDays = ['Sun','Mon','Thue','Wed',"Thur","Fri","Sat"];
+$arraysDays = ['Su','Mo','Th','We',"Th","Fr","Sa"];
 
 $firstDay = null;
 
 $counter = $firstDayOfMonth;
+$counter2 =0;
 
 switch($firstDayOfMonth){
     case 0:
@@ -33,37 +34,39 @@ switch($firstDayOfMonth){
         break;
 }
 
-$callendar = "<div class='col-md-12'><div class='col-xs-12 col-md-12 col-sm-10'>";
+$callendar = "<div class='col-xs-12' style='margin:auto'><div class='row'>";
 for($k=0;$k<7;$k++){
     if ($k==0 || $k==6){
-        $callendar .= "<div class='col-xs-12 col-sm-12 col-md-1 daysText red' style='width: 12%; height: 15%;' >".$arraysDays[$k]."</div>";
+        $callendar .= "<div class='col-xs-12 daysText red' style='width: 10%;' >".$arraysDays[$k]."</div>";
     }else{
-        $callendar .= "<div class='col-xs-12 col-sm-12 col-md-1 daysText' style='width: 12%; height: 15%;' >".$arraysDays[$k]."</div>";
-
+        $callendar .= "<div class='col-xs-12 daysText' style='width: 10%;' >".$arraysDays[$k]."</div>";
     }
 }
+$callendar .= "</div>";
+$callendar .= "<div class='row'>";
 for($n=0;$n<$firstDayOfMonth;$n++){
-    $callendar .= "<div  class='col-xs-12 col-sm-12 col-md-1' style='width: 12%; height: 15%; background-color: rgba(250,250,250,0.1); margin: 5px;'></div>";
+    $callendar .= "<div class='col-xs-12 daysText' style='width: 10%;background-color: rgba(250,250,250,0.1);'></div>";
 }
 for($i=0;$i<$numberOfDays;$i++){
 
     $id= $i+1;
     if($firstDayOfMonth>6){
         $firstDayOfMonth=0;
+        $callendar .="</div><div class='row'>";
     }
     if($counter>6){
         $counter =0;
     }
     if($counter==0 || $counter==6){
-        $callendar .= "<div class='col-xs-12 col-sm-12 col-md-1 daysS' style='width: 12%; height: 15%;' ><span id='' onclick='addNewTrening($id,$month)'><p class='red'>".$id."</p><p id='".$id."-".$month."'></p></span></div>";
+        $callendar .= "<div class='col-xs-12 daysS' style='width: 10%;' ><span id='' onclick='addNewTrening($id,$month)'><p class='red' style='font-size: 14px;'>".$id."</p><p id='".$id."-".$month."'></p></span></div>";
     } else{
-        $callendar .= "<div class='col-xs-12 col-sm-2 col-md-2 daysR' style='width: 12%; height: 15%;' ><span onclick='addNewTrening($id,$month)'><p>".$id."</p><p id='".$id."-".$month."'></p></span></div>";
+        $callendar .= "<div class='col-xs-12 daysR' style='width: 10%;' ><span onclick='addNewTrening($id,$month)'><p style='font-size: 14px;'>".$id."</p><p id='".$id."-".$month."'></p></span></div>";
     }
     $counter++;
 
     $firstDayOfMonth++;
 }
-$callendar .="</div></div>";
+$callendar .="</div>";
 
 echo $callendar;
 

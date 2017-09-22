@@ -1,18 +1,25 @@
-@media screen and(max-width: 500px){
-    .button{
-        font-size: 12px;
+@media screen and (max-width: 350px){
+    #callendar{
+        position: relative;
+        left: 4%;
+    }
+    .card{
+        position: relative;
+        width:300px;
+    }
+    .description{
+        position: absolute;
+        top: 20%;
+        left:21%;
     }
 }
-
-@media screen and (max-width: 501px){
+@media screen and (min-width: 350px) and (max-width: 500px){
     #loginForm{
         display: none;
     }
-
     #buttonShowHide{
         display: block;
     }
-
     .button{
         position: static;
         width: auto;
@@ -23,7 +30,6 @@
         width: 25%;
         height: 5%;
     }
-
     .footer{
         background-color: rgba(100,100,100,0.5);
         height:100px;
@@ -33,21 +39,112 @@
         position:absolute;
         top:30px;
     }
-
     .card{
         position: relative;
-        width:300px;
+        width:350px;
     }
-
     .description{
         position: absolute;
         top: 20%;
         left:21%;
     }
-
+    #callendar{
+        position: relative;
+        left: 10%;
+    }
+    .textdescription{
+        font-size: 8px;
+    }
 }
 
-@media screen and (min-width: 500px){
+@media screen and (min-width: 501px) and (max-width: 560px){
+    #bannerIMG{
+        display:none;
+    }
+    .button{
+        position: static;
+        width: auto;
+        font-size: 12px;
+    }
+    .card{
+        position: relative;
+        width:350px;
+    }
+    .description{
+        position: absolute;
+        top: 20%;
+        left:21%;
+    }
+    .center-wrap{
+        position: static;
+        margin: auto;
+        top: 60%;
+        left: 8%;
+        width: 25%;
+        height: 5%;
+    }
+    .footer{
+        background-color: rgba(10,10,10,0.8);
+        width:100%;
+    }
+
+    .btn-group a img{
+        width: 30px;
+    }
+    .btn-group{
+        position:absolute;
+        top:30px;
+    }
+    #callendar{
+        position: relative;
+        left:12%;
+    }
+}
+
+@media screen and (min-width: 561px) and (max-width: 700px){
+    #callendar{
+        position: relative;
+        left: 14%;
+    }
+    #bannerIMG{
+        display:none;
+    }
+    .button{
+        position: static;
+        width: auto;
+        font-size: 12px;
+    }
+    .card{
+        position: relative;
+        width:380px;
+    }
+    .description{
+        position: absolute;
+        top: 20%;
+        left:21%;
+    }
+    .center-wrap{
+        position: static;
+        margin: auto;
+        top: 60%;
+        left: 8%;
+        width: 25%;
+        height: 5%;
+    }
+    .footer{
+        background-color: rgba(10,10,10,0.8);
+        width:100%;
+    }
+
+    .btn-group a img{
+        width: 30px;
+    }
+    .btn-group{
+        position:absolute;
+        top:30px;
+    }
+}
+@media screen and (min-width: 701px){
     #loginForm{
         display: block;
     }
@@ -87,36 +184,10 @@
         top: 20%;
         left:21%;
     }
-}
 
-@media screen and (max-width: 560px){
-    #bannerIMG{
-        display:none;
-    }
-    .button{
-        position: static;
-        width: auto;
-
-    }
-    .center-wrap{
-        position: static;
-        margin: auto;
-        top: 60%;
-        left: 8%;
-        width: 25%;
-        height: 5%;
-    }
-    .footer{
-        background-color: rgba(10,10,10,0.8);
-        width:100%;
-    }
-
-    .btn-group a img{
-        width: 30px;
-    }
-    .btn-group{
-        position:absolute;
-        top:30px;
+    #callendar{
+        position: relative;
+        left: 14%;
     }
 }
 
@@ -319,9 +390,10 @@ td{
 .daysS{
     background-color: rgba(250,250,250,0.5);
     color: red;
-    margin: 5px;
+    margin: 3px;
     border:2px solid white;
     cursor: pointer;
+    font-size: 12px;
 }
 .daysS:hover{
     background-color: rgba(250,250,250,0.9);
@@ -330,9 +402,10 @@ td{
 .daysR{
 
     background-color: rgba(250,250,250,0.5);
-    margin: 5px;
+    margin: 3px;
     border:2px solid white;
     cursor: pointer;
+    font-size: 12px;
 }
 
 .daysR:hover{
@@ -342,10 +415,13 @@ td{
 .daysText{
     background-color: rgba(250,250,250,0.5);
     color: white;
-    margin: 5px;
+    margin: 3px;
     border:2px solid white;
+    font-size: 12px;
 }
 
 .red{
     color: red;
 }
+
+

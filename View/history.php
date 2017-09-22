@@ -6,13 +6,18 @@
         <div class="col-md-6 col-xs-12 col-sm-6 col-lg-4" ng-repeat="item in dataToHistory track by $index">
             <div class="card">
                 <div class="description">
-                    <p>BMR: {{item.bmr}}</p>
-                    <p>DayBMR: {{item.dayBMR}}</p>
-                    <p>Date of measure:</p>
-                    <p>{{item.Data}}</p>
-                    <button class="btn btn-info" ng-click="remove(item.id)">Delete</button>
+                    <p class="textDescription">BMR: {{item.bmr}}</p>
+                    <p class="textDescription">DayBMR: {{item.dayBMR}}</p>
+                    <p class="textDescription">Date of measure:</p>
+                    <p class="textDescription">{{item.Data}}</p>
+                    <div id="delete">
+                        <button class="btn btn-info" ng-click="remove(item.id)">Delete</button>
+                    </div>
                 </div>
-                <img src="img/card2.png" width="100%"/>
+                <div class="text-center">
+                    <img src="img/card2.png" width="100%" style="margin:auto"/>
+                </div>
+
             </div>
         </div>
     </div>
