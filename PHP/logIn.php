@@ -2,28 +2,33 @@
 session_start();
 require_once "dataBase.php";
 
-$login = $_GET['userLogin'];
-$password = $_GET['userPassword'];
+if(isset($_GET['userLogin']) && isset($_GET['userPassword'])){
 
-$db = new mysqli($host,$db_user,$db_password,$db_name);
+    $login = $_GET['userLogin'];
+    $password = $_GET['userPassword'];
 
-$sql = "SELECT * FROM users WHERE login='".$login."'";
+    $db = new mysqli($host,$db_user,$db_password,$db_name);
 
-$result = $db->query($sql);
+    $sql = "SELECT * FROM users WHERE login='".$login."'";
 
-if($result->num_rows>0){
-    $data = $result->fetch_assoc();
-    if(password_verify($password,$data['password'])){
-        $_SESSION['id']=$data['id'];
-        $_SESSION['login'] = $data['login'];
-        $_SESSION['password'] = $data['password'];
-        $_SESSION['email']=$data['email'];
-        $json_result = json_encode($data);
-        echo $json_result;
+    $result = $db->query($sql);
+
+    if($result->num_rows>0){
+        $data = $result->fetch_assoc();
+        if(password_verify($password,$data['password'])){
+            $_SESSION['id']=$data['id'];
+            $_SESSION['login'] = $data['login'];
+            $_SESSION['password'] = $data['password'];
+            $_SESSION['email']=$data['email'];
+            $json_result = json_encode($data);
+            echo $json_result;
+        } else{
+            echo "The password is incorrect!";
+        }
     } else{
-        echo "The password is incorrect!";
+        echo "There is no one with that login!";
     }
 } else{
-    echo "There is no one with that login!";
+    echo "Write the Login and Password!";
 }
 ?>

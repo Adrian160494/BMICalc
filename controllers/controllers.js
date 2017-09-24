@@ -2,15 +2,6 @@ var app = angular.module('app',["ngRoute"]);
 
 app.config(function ($routeProvider) {
 
-    $routeProvider.when('/',{
-        templateUrl: 'View/formBMR.php'
-    });
-    $routeProvider.when("/register",{
-        templateUrl: 'registerForm.pxp'
-    });
-    $routeProvider.when("/history",{
-        templateUrl: 'View/history.php'
-    });
     $routeProvider.otherwise({
         redirectTo: '/'
     })
@@ -40,7 +31,7 @@ app.directive("createCalendar",function () {
 });
 
 
-app.controller('mainCtrl',function ($scope, $http, $location) {
+app.controller('mainCtrl',['$scope','$http','$location', function ($scope, $http, $location) {
 
     $scope.viewFlag = false;
     $scope.loginPanel = false;
@@ -49,6 +40,17 @@ app.controller('mainCtrl',function ($scope, $http, $location) {
     $scope.dataToHistory = null;
     $scope.today = new Date();
     $scope.monthToday = $scope.today.getMonth();
+    $scope.muscules = [
+        {part: "Chest", category: "BigParties"},
+        {part: "Back", category: "BigParties"},
+        {part: "Legs", category: "BigParties"},
+        {part: "ABS", category: "BigParties"},
+        {part: "Biceps", category: "SmallParties"},
+        {part: "Triceps", category: "SmallParties"},
+        {part: "Sholders", category: "SmallParties"},
+        {part: "Forearm", category: "SmallParties"}
+
+    ];
 
     $scope.initFunction = function () {
         $http.get("CallendarData.json").success(function (response) {
@@ -62,20 +64,26 @@ app.controller('mainCtrl',function ($scope, $http, $location) {
 
     $scope.getCallendar = function (month) {
         var now = new Date();
-        var data = new Date(now.getUTCFullYear(),month,1,0,0,0);
+        var data = new Date(now.getUTCFullYear(), month, 1, 0, 0, 0);
         $scope.firstDayOfMonth = data.getDay();
         console.log(data);
         console.log($scope.firstDayOfMonth);
 
-        $http.get("PHP/createCallendar.php",{params:{numberOfDays: $scope.numberOfDays, month: month, firstDayOfMonth: $scope.firstDayOfMonth}}).success(function (data) {
+        $http.get("PHP/createCallendar.php", {
+            params: {
+                numberOfDays: $scope.numberOfDays,
+                month: month,
+                firstDayOfMonth: $scope.firstDayOfMonth
+            }
+        }).success(function (data) {
             $scope.callendar = data;
             console.log($scope.callendar);
             $('#callendar').html($scope.callendar);
         })
     };
 
-    $scope.prevCalendar= function () {
-        if($scope.monthToday>0){
+    $scope.prevCalendar = function () {
+        if ($scope.monthToday > 0) {
             $scope.monthToday--;
             $scope.numberOfDays = $scope.dataCalendar[$scope.monthToday].numberOfDays;
             $scope.getCallendar($scope.monthToday);
@@ -83,7 +91,7 @@ app.controller('mainCtrl',function ($scope, $http, $location) {
     };
 
     $scope.nextCalendar = function () {
-        if($scope.monthToday<11){
+        if ($scope.monthToday < 11) {
             $scope.monthToday++;
             $scope.numberOfDays = $scope.dataCalendar[$scope.monthToday].numberOfDays;
             $scope.getCallendar($scope.monthToday);
@@ -102,7 +110,15 @@ app.controller('mainCtrl',function ($scope, $http, $location) {
     };
 
     $scope.calculate = function (data) {
-        $http.get("PHP/calculateC.php",{params:{dataSex: data.sex, dataWeight: data.weight, dataHeight: data.height, dataAge: data.age, dataActivity: data.activity}})
+        $http.get("PHP/calculateC.php", {
+            params: {
+                dataSex: data.sex,
+                dataWeight: data.weight,
+                dataHeight: data.height,
+                dataAge: data.age,
+                dataActivity: data.activity
+            }
+        })
             .then(function (response) {
                 $scope.calculations = response.data;
                 $scope.viewFlag = true;
@@ -113,25 +129,32 @@ app.controller('mainCtrl',function ($scope, $http, $location) {
     $scope.showLogin = function () {
         $scope.formLogin = $("#loginForm");
         $scope.showHide = $("#showHide");
-        if($scope.formLogin.css("display")=="none"){
-            $scope.formLogin.show("blind",1000);
-        } else{
-            $scope.formLogin.hide("blind",1000);
+        if ($scope.formLogin.css("display") == "none") {
+            $scope.formLogin.show("blind", 1000);
+        } else {
+            $scope.formLogin.hide("blind", 1000);
         }
-        if($scope.showHide.hasClass("glyphicon-arrow-up")){
+        if ($scope.showHide.hasClass("glyphicon-arrow-up")) {
             $scope.showHide.removeClass("glyphicon-arrow-up").addClass("glyphicon-arrow-down");
-        } else{
+        } else {
             $scope.showHide.removeClass("glyphicon-arrow-down").addClass("glyphicon-arrow-up");
         }
     };
 
     $scope.addNewUser = function (newUser) {
-        $http.get("PHP/register.php",{params:{userLogin: newUser.login,userPassword: newUser.password, userConfirmPassword: newUser.confirmPassword, userEmail: newUser.email}}).then(function (response) {
+        $http.get("PHP/register.php", {
+            params: {
+                userLogin: newUser.login,
+                userPassword: newUser.password,
+                userConfirmPassword: newUser.confirmPassword,
+                userEmail: newUser.email
+            }
+        }).then(function (response) {
             $scope.newUserData = response.data;
-            if($scope.newUserData.length<10){
+            if ($scope.newUserData.length < 10) {
                 $scope.information = "Creating the new account succesfull!";
                 $scope.errorFlag = false;
-            }else {
+            } else {
                 $scope.registerError = response.data;
                 $scope.errorFlag = true;
             }
@@ -140,13 +163,17 @@ app.controller('mainCtrl',function ($scope, $http, $location) {
 
     $scope.logIn = function (user) {
         $scope.error = null;
-        $http.get("PHP/logIn.php",{params:{userLogin: user.login, userPassword: user.password}})
+        $http.get("PHP/logIn.php", {params: {userLogin: user.login, userPassword: user.password}})
             .then(function (response) {
                 $scope.answer = response.data;
-                if(angular.isDefined($scope.answer['login'])){
-                    $scope.loginPanel = true;
-                    $location.path("/");
-                } else{
+                if (angular.isDefined($scope.answer['login'])) {
+                    $('#loginPanel').hide('scale', 500);
+                    $interval(function () {
+                        $('#loginPanel').show('scale', 500);
+                        $scope.loginPanel = true;
+                        $location.path("/");
+                    }, 500);
+                } else {
                     $scope.error = $scope.answer;
                 }
             })
@@ -154,22 +181,27 @@ app.controller('mainCtrl',function ($scope, $http, $location) {
 
     $scope.checkPanel = function () {
         $http.get("PHP/checkLogIn.php").then(function (response) {
-            $scope.loginPanel= response.data;
+            $scope.loginPanel = response.data;
         });
         return $scope.loginPanel;
     };
 
     $scope.addToHistory = function () {
-        $http.get("PHP/addToHistory.php",{params:{bmr: $scope.calculations[0],dayBMR: $scope.calculations[1]}}).then(function (response) {
-            if(response.data==true){
+        $http.get("PHP/addToHistory.php", {
+            params: {
+                bmr: $scope.calculations[0],
+                dayBMR: $scope.calculations[1]
+            }
+        }).then(function (response) {
+            if (response.data == true) {
                 $scope.getDataOfHistory();
-                $scope.information2= "Added to history!";
+                $scope.information2 = "Added to history!";
             }
         });
     };
 
     $scope.chooseView = function (text) {
-        switch(text){
+        switch (text) {
             case 1:
                 $scope.includeView = 'View/formBMR.php';
                 break;
@@ -188,24 +220,17 @@ app.controller('mainCtrl',function ($scope, $http, $location) {
     };
 
     $scope.remove = function (id) {
-        $http.get("PHP/deleteElement.php",{params:{id:id}}).then(function (response) {
+        $http.get("PHP/deleteElement.php", {params: {id: id}}).then(function (response) {
             $scope.getDataOfHistory();
         });
     };
 
-});
-
-function addNewTrening(day,month) {
-    console.log("dzialam");
-    var XHR = new XMLHttpRequest();
-    XHR.open("GET","redirectToAdder.php?day="+day+",month="+month,true);
-    XHR.send(null);
-    XHR.onreadystatechange = function () {
-        if(XHR.readyState===4){
-            if(XHR.status===200){
-            console.log("Done");
-            }
-        }
+    $scope.addWorkout = function (newTraining) {
+        $http.get("PHP/addSelectTraining.php",{params:{part:newTraining.part, description: newTraining.description}})
+            .then(function (response) {
+                $scope.done = response.data;
+                $('#myModal').modal('show');
+            })
     }
 
-}
+}]);

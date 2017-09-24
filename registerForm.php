@@ -18,7 +18,7 @@
     <script src="bootstrap/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
     <script src="js/angular.js"></script>
     <script src="js/angular-route.js"></script>
-    <script src="controllers/controller.js"></script>
+    <script src="controllers/controllers.js"></script>
 </head>
 <body ng-controller="mainCtrl" ng-cloak>
 <div class="container">

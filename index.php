@@ -20,13 +20,13 @@
     <script src="bootstrap/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
     <script src="js/angular.js"></script>
     <script src="js/angular-route.js"></script>
-    <script src="controllers/controller.js"></script>
+    <script src="controllers/controllers.js"></script>
 </head>
 <body ng-controller="mainCtrl" ng-init="initFunction()" ng-cloak>
 <div class="wrapper">
     <div class="container-fluid">
         <div class="col-xs-12">
-            <div class="" id="borderForm">
+            <div id="loginPanel">
                 <div ng-include="loginPanel ? 'View/loggedIn.php' : 'View/panelLogin.php'"></div>
                 <div id="buttonShowHide" class="btn btn-default" ng-hide="loginPanel" ng-click="showLogin()"><span id="showHide" class="glyphicon glyphicon-arrow-down"></span></div>
             </div>
@@ -73,9 +73,9 @@
     <div class="footer">
         <br/>
         <div class="text-left">
-            <a href="https://www.facebook.com/adr.ian.395017"><img src="img/face2.png" width="2%"/></a>
-            <a href="#"><img src="img/twit2.png" width="2%"/></a>
-            <a href="#"><img src="img/insta.png" width="2%"/></a>
+            <a href="https://www.facebook.com/adr.ian.395017"><img src="img/face2.png" width="30px"/></a>
+            <a href="#"><img src="img/twit2.png" width="30px"/></a>
+            <a href="#"><img src="img/insta.png" width="30px"/></a>
         </div>
         <div class="text-left">
             <span>Copyright by Adrian Ciejka <span class="glyphicon glyphicon-copyright-mark"></span></span>

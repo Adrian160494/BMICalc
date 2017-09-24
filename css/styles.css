@@ -2,6 +2,13 @@
     #callendar{
         position: relative;
         left: 4%;
+        width: 80%;
+    }
+    #buttonShowHide{
+        display: block;
+    }
+    #bannerIMG{
+        display:none;
     }
     .card{
         position: relative;
@@ -12,10 +19,35 @@
         top: 20%;
         left:21%;
     }
+    .button{
+        position: static;
+        width: 20%;
+    }
+    .center-wrap{
+        position: static;
+        margin: auto;
+        width: 30%;
+        height: 5%;
+    }
+    #delete{
+        position: relative;
+        left: 50%;
+    }
+    .description{
+        width:250px;
+    }
+
+    .footer{
+        background-color: rgba(10,10,10,0.8);
+        width:100%;
+    }
 }
 @media screen and (min-width: 350px) and (max-width: 500px){
     #loginForm{
         display: none;
+    }
+    #bannerIMG{
+        display:none;
     }
     #buttonShowHide{
         display: block;
@@ -55,11 +87,21 @@
     .textdescription{
         font-size: 8px;
     }
+    .description{
+        width:200px;
+    }
+    .footer{
+        background-color: rgba(10,10,10,0.8);
+        width:100%;
+    }
 }
 
 @media screen and (min-width: 501px) and (max-width: 560px){
     #bannerIMG{
         display:none;
+    }
+    #buttonShowHide{
+        display: none;
     }
     .button{
         position: static;
@@ -98,6 +140,9 @@
     #callendar{
         position: relative;
         left:12%;
+    }
+    .description{
+        width:200px;
     }
 }
 
@@ -142,6 +187,9 @@
     .btn-group{
         position:absolute;
         top:30px;
+    }
+    .description{
+        width:200px;
     }
 }
 @media screen and (min-width: 701px){
@@ -188,6 +236,27 @@
     #callendar{
         position: relative;
         left: 14%;
+        width: 80%;
+    }
+
+    .description{
+        width:200px;
+    }
+
+    .descriptionTraining{
+        position: absolute;
+        text-align: center;
+        background-color: rgba(255,255,255,0.2);
+        width: 15%;
+        border: 4px solid white;
+        padding:5px;
+        left: 80%;
+        top: 10%;
+        border-radius: 30px;
+
+    }
+    .descriptionTraining p{
+        font-size: 16px;
     }
 }
 
@@ -199,12 +268,16 @@ body{
     padding:0;
 
 }
-
+#loginPanel{
+}
+#delete{
+    position: relative;
+    left: 50%;
+}
 .wrapper{
     min-height:100%;
     margin-bottom:120px;
 }
-
 .footer{
     position: fixed;
     bottom: 0;
@@ -216,27 +289,22 @@ body{
 li{
     font-size: 20px;
 }
-
 .headline{
     font-family: 'Pacifico', cursive;
     color: rgba(250,250,60,0.5);
 }
-
 .font, p{
     font-size: 20px;
     color: black;
     font-family: 'Gloria Hallelujah', cursive;
 }
-
 table td{
     padding: 0 5px;
 }
-
 .liFont{
     font-size:21px;
     font-family: 'Fredoka One', cursive;
 }
-
 .navHead{
     font-size:35px;
     color: white;
@@ -250,12 +318,9 @@ table td{
     border-radius: 5px;
     color:white;
 }
-
 #banner{
     position: relative;
 }
-
-
 .button {
     background: none center center no-repeat;
     background-size: cover;
@@ -271,19 +336,16 @@ table td{
     -webkit-transition: border 1s cubic-bezier(0.19,1,.22,1),color .6s cubic-bezier(0.19,1,.22,1);
     transition: border 1s cubic-bezier(0.19,1,.22,1), color .6s cubic-bezier(0.19,1,.22,1), background 5s cubic-bezier(0.19,1,.22,1);
 }
-
 .button a {
     color: white;
     font-family: 'Sitka Subheading';
     font-weight: 900;
     text-decoration: none;
 }
-
 .button .mask {
     background: #fff;
     background: rgba(255,255,255,0.5);
 }
-
 .button .mask {
     display: block;
     width: 200px;
@@ -293,31 +355,25 @@ table td{
     -webkit-transition: all 1.1s cubic-bezier(0.19,1,.22,1);
     transition: all 1.1s cubic-bezier(0.19,1,.22,1);
 }
-
 .button .shift {
     -webkit-transition: all 1.1s cubic-bezier(0.19,1,.22,1);
     transition: all 1.1s cubic-bezier(0.19,1,.22,1);
 }
-
 .button:hover {
     border-color: #fff;
 }
-
 .button:hover a {
     color: #fff;
     transition: all 0.3s;
 }
-
 .button:hover .mask {
     background: #fff;
     -webkit-transform: translate3d(120%,-100px,0) rotate3d(0,0,1,90deg);
     transform: translate3d(120%,-100px,0) rotate3d(0,0,1,90deg);
 }
-
 .button:hover .shift {
     padding-left: 5px;
 }
-
 .fill {
     --color: lightgreen;
     --hover: lightgreen;
@@ -326,34 +382,27 @@ table td{
 .fill:focus {
     box-shadow: inset 0 0 0 2em var(--hover);
 }
-
 .fill2 {
     --color: lightpink;
     --hover: rgba(200,0,0,0.7);
 }
-
 .fill2:hover, .fill2:focus {
     box-shadow: inset 0 0 0 2em var(--hover);
 }
-
 .fill:hover {
     color: green;
 }
-
 .fill2:hover {
     color: red;
 }
-
 .text{
     color: white;
 }
-
 td{
     color: white;
     font-family: 'Gloria Hallelujah';
     font-size:17px;
 }
-
 .navigation{
     background-color: rgba(100,100,100,0.8);
     padding:10px;
@@ -361,32 +410,26 @@ td{
     -moz-border-radius: 10px;
     border-radius: 10px;
 }
-
 .navigation-header{
     background-color: rgba(10,10,10,0.7);
     padding: 10px 0;
 }
-
 .navigation-body{
     background-color: rgba(100,100,100,0.6);
     padding: 20px;
 }
-
 .navigation-footer{
     background-color: rgba(100,100,100,0.8);
 }
-
 #copyright{
     font-size:100%;
     color:white;
     position: absolute;
     bottom:0;
 }
-
 .white {
     color: white;
 }
-
 .daysS{
     background-color: rgba(250,250,250,0.5);
     color: red;
@@ -398,7 +441,6 @@ td{
 .daysS:hover{
     background-color: rgba(250,250,250,0.9);
 }
-
 .daysR{
 
     background-color: rgba(250,250,250,0.5);
@@ -407,11 +449,9 @@ td{
     cursor: pointer;
     font-size: 12px;
 }
-
 .daysR:hover{
     background-color: rgba(250,250,250,0.9);
 }
-
 .daysText{
     background-color: rgba(250,250,250,0.5);
     color: white;
@@ -419,9 +459,21 @@ td{
     border:2px solid white;
     font-size: 12px;
 }
-
 .red{
     color: red;
 }
+
+#callendarDesc{
+    position: relative;
+}
+
+.daysR a, .daysS a{
+    text-decoration: none;
+    color: white;
+    font-size:16px;
+}
+
+
+
 
 
