@@ -12,11 +12,7 @@ try {
 
     $result = $db->deleteElement($db_connect,$id);
 
-    if($result){
-        echo true;
-    } else{
-        echo false;
-    }
+    echo $result;
 } catch(Exception $e){
     echo "Error";
 }

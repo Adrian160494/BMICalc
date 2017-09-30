@@ -2,6 +2,10 @@ var app = angular.module('app',["ngRoute"]);
 
 app.config(function ($routeProvider) {
 
+    $routeProvider.when('/',{
+        templateUrl: 'index.php'
+    });
+
     $routeProvider.otherwise({
         redirectTo: '/'
     })
@@ -37,6 +41,7 @@ app.controller('mainCtrl',['$scope','$http','$location','$interval','$timeout', 
         $scope.getCallendar();
         $scope.getCallendarForDiet();
         $scope.getDataToWorkout();
+        $scope.getDataToDiet();
         $('#callendar').html($scope.callendar);
         $('#callendarDiet').html($scope.callendarDiet);
     };
@@ -112,6 +117,9 @@ app.controller('mainCtrl',['$scope','$http','$location','$interval','$timeout', 
             $scope.numberOfDays = $scope.dataCalendar[$scope.monthToday].numberOfDays;
             $scope.getCallendarForDiet($scope.monthToday);
         }
+        $timeout(function () {
+            $scope.checkDiet();
+        },100);
     };
 
     $scope.nextCalendarDiet = function () {
@@ -120,6 +128,9 @@ app.controller('mainCtrl',['$scope','$http','$location','$interval','$timeout', 
             $scope.numberOfDays = $scope.dataCalendar[$scope.monthToday].numberOfDays;
             $scope.getCallendarForDiet($scope.monthToday);
         }
+        $timeout(function () {
+            $scope.checkDiet();
+        },100);
     };
 
     $scope.showCallendar = function () {
@@ -134,6 +145,9 @@ app.controller('mainCtrl',['$scope','$http','$location','$interval','$timeout', 
     $scope.showCallendarDiet = function () {
         $scope.numberOfDays = $scope.dataCalendar[$scope.monthToday].numberOfDays;
         $scope.getCallendarForDiet($scope.monthToday);
+        $timeout(function () {
+            $scope.checkDiet();
+        },200);
     };
 
     $scope.showDiet = function (id, month) {
@@ -151,16 +165,14 @@ app.controller('mainCtrl',['$scope','$http','$location','$interval','$timeout', 
     $scope.getDataToWorkout =function () {
         $http.get("PHP/getDataToWorkout.php").then(function (response) {
             $scope.dataToWorkout = response.data;
-            $scope.id =
             console.log($scope.dataToWorkout);
         });
     };
-
-    $scope.deleteWorkout = function (id) {
-        console.log("Dzialam "+id);
-        $http.get("PHP/deleteWorkout.php",{params:{id: id}}).then(function (res) {
-            $scope.done = res.data;
-        })
+    $scope.getDataToDiet =function () {
+        $http.get("PHP/getDataToDiet.php").then(function (response) {
+            $scope.dataToDiet = response.data;
+            console.log($scope.dataToDiet);
+        });
     };
 
     $scope.calculate = function (data) {
@@ -264,6 +276,7 @@ app.controller('mainCtrl',['$scope','$http','$location','$interval','$timeout', 
                 $scope.includeView = 'View/history.php';
                 break;
             case 3:
+                $scope.getDataToWorkout();
                 $scope.showCallendar();
                 $scope.includeView = 'View/training.php';
                 break;
@@ -297,14 +310,14 @@ app.controller('mainCtrl',['$scope','$http','$location','$interval','$timeout', 
             var dayMonth = id.split(',');
             var day = dayMonth[0];
             var month = dayMonth[1];
-            if (array[month][day]!=undefined) {
+            if (array[month][day]) {
                 $(this).addClass('isWorkout');
                 $(this).attr('href','');
                 $(this).bind('click',function () {
                     $scope.id = array[parseInt(month)][day].id;
                     var text = "<p>"+array[parseInt(month)][day].part+"</p><p>"+array[parseInt(month)][day].description+"</p>";
                     $('#textModal').html(text);
-                    $('#buttonToDelete').html("<button class='btn btn-danger' ng-click=\"deleteWorkout("+$scope.id+")\">Delete</button>");
+                    $('#buttonToDelete').html("<button class='btn btn-danger' onclick='deleteWorkout("+$scope.id+")'>Delete</button>");
                     $('#modalWorkout').modal('show');
                 });
             } else {
@@ -320,7 +333,7 @@ app.controller('mainCtrl',['$scope','$http','$location','$interval','$timeout', 
             var dayMonth = id.split(',');
             var day = dayMonth[0];
             var month = dayMonth[1];
-            if (array[month][day]!=undefined) {
+            if (array[month][day]) {
                 $(this).addClass('isWorkout');
                 $(this).attr('href','');
                 $(this).bind('click',function () {
@@ -328,13 +341,74 @@ app.controller('mainCtrl',['$scope','$http','$location','$interval','$timeout', 
                     $scope.id = array[parseInt(month)][day].id;
                     var text = "<p>"+array[parseInt(month)][day].part+"</p><p>"+array[parseInt(month)][day].description+"</p>";
                     $('#textModal').html(text);
-                    $('#buttonToDelete').html("<button class='btn btn-danger' ng-click='deleteWorkout("+$scope.id+")'>Delete</button>");
+                    $('#buttonToDelete').html("<button class='btn btn-danger' onclick='deleteWorkout("+$scope.id+")'>Delete</button>");
                     $('#modalWorkout').modal('show');
                 });
             } else {
                 $(this).removeClass('isWorkout');
             }
         });
-    }
+    };
+
+    $scope.addDiet = function (newDiet) {
+        $http.get("PHP/addDiet.php",{params:{breakfast: newDiet.breakfast, lunch: newDiet.lunch, dinner: newDiet.dinner, dinner2: newDiet.dinner2, supper: newDiet.supper}})
+            .then(function (response) {
+                $scope.done = response.data;
+                $('#myModalDiet').modal('show');
+                $location.path('/');
+            })
+
+    };
+
+    $scope.checkDiet = function () {
+        var array2 = $scope.dataToDiet;
+        $('.diet').each(function () {
+            var id = $(this).attr('content');
+            var dayMonth2 = id.split(',');
+            var day2 = dayMonth2[0];
+            var month2 = dayMonth2[1];
+            if (array2[month2][day2]) {
+                var idButton = "#button"+day2+"-"+month2;
+                console.log(idButton);
+                var idDivToFill = "#diet-"+day2+"-"+month2;
+                $(idButton).css('border','6px solid red');
+                    $scope.idDiv = array2[parseInt(month2)][day2].id;
+                    var text = array2[parseInt(month2)][day2];
+                    var textToFill = "<div style='background-color: rgba(100,100,100,0.5); overflow: auto'><p style='font-size: 25px; color: red'>Breakfast: </p><hr><p>"+text.breakfast+"</p><p style='font-size: 25px; color: red'> Lunch: </p><hr><p>"+text.lunch+"</p><p style='font-size: 25px; color: red'>Dinner: </p><hr><p>"+text.dinner+"</p><p style='font-size: 25px; color: red'>Second Dinner: </p><hr><p>"+text.dinner2+"</p><p style='font-size: 25px; color: red'>Supper: </p><hr><p >"+text.supper+"</p></div>";
+                    $(idDivToFill).html(textToFill);
+            } else {
+                $(this).removeClass('isWorkout');
+            }
+        });
+
+    };
 }]);
+
+function deleteWorkout(id) {
+    var request = new XMLHttpRequest();
+    console.log("Wszedlem do usuwania i id= " + id);
+    request.open("GET", "PHP/deleteWorkout.php?id=" + id, true);
+    request.send(null);
+
+    request.onreadystatechange = function () {
+        if (request.readyState === 4) {
+            if (request.status === 200) {
+                console.log("Delete element");
+
+                console.log(request.responseText);
+
+            }
+        }
+    }
+}
+
+function showDiet(id, month) {
+    var text = "#diet"+"-"+id+"-"+month;
+    if($(text).css('display')=="none"){
+        $(text).show('blind',1500);
+    } else{
+        $(text).hide('blind',1500);
+    }
+
+}
 

@@ -34,7 +34,7 @@ $counter = $firstDayOfMonth;
 $counter2 =0;
 
 
-$callendar = "<div class='col-xs-6 col-xs-offset-3 row text-center'>";
+$callendar = "<div class='col-xs-12 row text-center'>";
 
 for($i=0;$i<$numberOfDays;$i++){
 
@@ -46,9 +46,9 @@ for($i=0;$i<$numberOfDays;$i++){
         $counter =0;
     }
     if($counter==0 || $counter==6){
-        $callendar .= "<div class='row well' style='width: 100%;' content='$id,$month'><div id='".$id."-".$month."'></div><span style='color: red'>$arraysDays[$counter]  $id</span><button class='btn btn-default  pull-right' ng-click='showDiet(".$id.",".$month.")'><span class='glyphicon glyphicon-calendar'></span></button></div>";
+        $callendar .= "<div class='diet row well' content='$id,$month'><div id='".$id."-".$month."'></div><span class='fontDiet' style='color: red'>$arraysDays[$counter]  $id</span><a class=' pull-left' href='addDiet.php?day=".$id."&month=".$month."'><button class='btn btn-default' id='button".$id."-".$month."'><span class='glyphicon glyphicon-plus-sign'></span></button></a><button class='btn btn-default  pull-right' onclick='showDiet(".$id.",".$month.")'><span class='glyphicon glyphicon-calendar'></span></button><div  style='display: none; ' id='diet-".$id."-".$month."'></div></div>";
     } else{
-        $callendar .= "<div class='row well' style='width: 100%;' content='$id,$month'><div id='".$id."-".$month."'></div><span style='color: black'>$arraysDays[$counter]  $id</span><button class='btn btn-default  pull-right' ng-click='showDiet(".$id.",".$month.")'><span class='glyphicon glyphicon-calendar'></span></button></div>";
+        $callendar .= "<div class='diet row well' content='$id,$month'><div id='".$id."-".$month."'></div><span class='fontDiet' style='color: black'>$arraysDays[$counter]  $id</span><a class=' pull-left' href='addDiet.php?day=".$id."&month=".$month."'><button class='btn btn-default' id='button".$id."-".$month."'><span class='glyphicon glyphicon-plus-sign'></span></button></a><button class='btn btn-default  pull-right' onclick='showDiet(".$id.",".$month.")'><span class='glyphicon glyphicon-calendar'></span></button><div style='display: none;'  id='diet-".$id."-".$month."'></div></div>";
     }
     $counter++;
 

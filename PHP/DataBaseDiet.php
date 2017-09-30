@@ -1,6 +1,6 @@
 <?php
 
-class DataBaseTraining {
+class DataBaseDiet {
     private $host,$db_name,$db_user,$db_password;
 
     function __construct($host,$db_user,$db_password,$db_name)
@@ -15,30 +15,31 @@ class DataBaseTraining {
         return new mysqli($this->host,$this->db_user,$this->db_password,$this->db_name);
     }
 
-    function addTraining(mysqli $db, $day, $month, $part, $description){
-        $sql = "INSERT INTO trening(day,month,part,description) VALUES ('$day','$month','$part','$description')";
+    function addDiet(mysqli $db, $day, $month, $breakfast, $lunch,$dinner,$dinner2,$supper){
+        $sql = "INSERT INTO diet(day,month,breakfast,lunch,dinner,dinner2,supper) VALUES ('$day','$month','$breakfast','$lunch','$dinner','$dinner2','$supper')";
         $result =$db->query($sql);
-
         return "Done";
     }
 
-    function selectALL(mysqli $db){
-        $sql = "SELECT * FROM trening";
+    function selectALLDiets(mysqli $db){
+        $sql = "SELECT * FROM diet";
         $result = $db->query($sql);
 
         return $result;
     }
 
-    function checkTraining(mysqli $db,$day,$month){
+    function checkDiet(mysqli $db,$day,$month){
         $sql = "SELECT * FROM trening WHERE day='".$day."' AND month='".$month."'";
         $result = $db->query($sql);
 
         return $result;
     }
 
-    function deleteElement(mysqli $db,$id){
+    function deleteDiet(mysqli $db,$id){
         $sql = "DELETE FROM trening WHERE id='".$id."'";
         $result = $db->query($sql);
         return $result;
     }
 }
+
+?>

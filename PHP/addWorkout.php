@@ -20,7 +20,7 @@ try{
     if($result == "Done"){
         $array=[$day,$month];
         echo json_encode($array);
-        unset($_SESSION['day]']);
+        unset($_SESSION['day']);
         unset($_SESSION['month']);
     } else{
         echo "Error";
