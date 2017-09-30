@@ -58,9 +58,9 @@ for($i=0;$i<$numberOfDays;$i++){
         $counter =0;
     }
     if($counter==0 || $counter==6){
-        $callendar .= "<div class='col-xs-12 daysS' style='width: 10%;' ><a href='addTraining.php?day=".$id."&month=".$month."'>".$id."</a><p id='".$id."-".$month."'></div>";
+        $callendar .= "<div class='daysS col-xs-12' style='width: 10%;' content='$id,$month'><a id='$id-$month' href='addTraining.php?day=".$id."&month=".$month."' >".$id."</a><p id='".$id."-".$month."'></p></div>";
     } else{
-        $callendar .= "<div class='col-xs-12 daysR' style='width: 10%;' ><a href='addTraining.php?day=".$id."&month=".$month."'>".$id."</a><p id='".$id."-".$month."'></p></div>";
+        $callendar .= "<div class='daysR col-xs-12' style='width: 10%;' content='$id,$month'><a id='$id-$month' href='addTraining.php?day=".$id."&month=".$month."'>".$id."</a><p id='".$id."-".$month."'></p></div>";
     }
     $counter++;
 
@@ -71,3 +71,4 @@ $callendar .="</div>";
 echo $callendar;
 
 ?>
+

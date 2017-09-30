@@ -7,31 +7,7 @@ app.config(function ($routeProvider) {
     })
 });
 
-app.directive("createCalendar",function () {
-    return function (scope,element,attrs) {
-        var div = angular.element('<div>');
-        var numberOfDays = scope.numberOfDays;
-        div.addClass("col-xs-12 text-center");
-        //var number = scope[attrs["monthToday"]];
-        console.log(numberOfDays);
-        for(var i=0;i<numberOfDays;i++){
-            var div2 = angular.element("<div>");
-            div2.addClass("col-xs-12");
-            div2.css({
-                width: "200px",
-                height: "200px",
-                backgroundColor: "rgba(250,250,250,0.5)",
-                margin :"5px"
-            });
-            div2.text(i+1);
-            div.append(div2);
-        }
-        element.append(div);
-    }
-});
-
-
-app.controller('mainCtrl',['$scope','$http','$location', function ($scope, $http, $location) {
+app.controller('mainCtrl',['$scope','$http','$location','$interval','$timeout', function ($scope, $http, $location, $interval,$timeout) {
 
     $scope.viewFlag = false;
     $scope.loginPanel = false;
@@ -57,18 +33,18 @@ app.controller('mainCtrl',['$scope','$http','$location', function ($scope, $http
             $scope.dataCalendar = response;
             $scope.numberOfDays = $scope.dataCalendar[$scope.monthToday].numberOfDays;
         });
-        $('#callendar').html($scope.callendar);
         $scope.checkPanel();
         $scope.getCallendar();
+        $scope.getCallendarForDiet();
+        $scope.getDataToWorkout();
+        $('#callendar').html($scope.callendar);
+        $('#callendarDiet').html($scope.callendarDiet);
     };
 
     $scope.getCallendar = function (month) {
         var now = new Date();
         var data = new Date(now.getUTCFullYear(), month, 1, 0, 0, 0);
         $scope.firstDayOfMonth = data.getDay();
-        console.log(data);
-        console.log($scope.firstDayOfMonth);
-
         $http.get("PHP/createCallendar.php", {
             params: {
                 numberOfDays: $scope.numberOfDays,
@@ -77,9 +53,33 @@ app.controller('mainCtrl',['$scope','$http','$location', function ($scope, $http
             }
         }).success(function (data) {
             $scope.callendar = data;
-            console.log($scope.callendar);
+        });
+        $timeout(function () {
             $('#callendar').html($scope.callendar);
-        })
+        },100);
+    };
+
+    $scope.getCallendarForDiet =function (month) {
+        var now = new Date();
+        var data = new Date(now.getUTCFullYear(), month, 1, 0, 0, 0);
+        $scope.firstDayOfMonth2 = data.getDay();
+        $http.get("PHP/createCallendarForDiet.php", {
+            params: {
+                numberOfDays: $scope.numberOfDays,
+                month: month,
+                firstDayOfMonth: $scope.firstDayOfMonth2
+            }
+        }).success(function (data) {
+            $scope.callendarDiet = data;
+        });
+        $timeout(function () {
+            $('#callendarDiet').html($scope.callendarDiet);
+        },100);
+    };
+
+    $scope.createCallendar = function () {
+        $('#callendar').html($scope.callendar);
+        $('#callendarDiet').html($scope.callendarDiet);
     };
 
     $scope.prevCalendar = function () {
@@ -88,6 +88,10 @@ app.controller('mainCtrl',['$scope','$http','$location', function ($scope, $http
             $scope.numberOfDays = $scope.dataCalendar[$scope.monthToday].numberOfDays;
             $scope.getCallendar($scope.monthToday);
         }
+        $timeout(function () {
+            $scope.checkWorkoutS();
+            $scope.checkWorkoutR();
+        },100);
     };
 
     $scope.nextCalendar = function () {
@@ -96,17 +100,67 @@ app.controller('mainCtrl',['$scope','$http','$location', function ($scope, $http
             $scope.numberOfDays = $scope.dataCalendar[$scope.monthToday].numberOfDays;
             $scope.getCallendar($scope.monthToday);
         }
+        $timeout(function () {
+            $scope.checkWorkoutS();
+            $scope.checkWorkoutR();
+        },100);
+    };
+
+    $scope.prevCalendarDiet = function () {
+        if ($scope.monthToday > 0) {
+            $scope.monthToday--;
+            $scope.numberOfDays = $scope.dataCalendar[$scope.monthToday].numberOfDays;
+            $scope.getCallendarForDiet($scope.monthToday);
+        }
+    };
+
+    $scope.nextCalendarDiet = function () {
+        if ($scope.monthToday < 11) {
+            $scope.monthToday++;
+            $scope.numberOfDays = $scope.dataCalendar[$scope.monthToday].numberOfDays;
+            $scope.getCallendarForDiet($scope.monthToday);
+        }
     };
 
     $scope.showCallendar = function () {
         $scope.numberOfDays = $scope.dataCalendar[$scope.monthToday].numberOfDays;
         $scope.getCallendar($scope.monthToday);
+        $timeout(function () {
+            $scope.checkWorkoutS();
+            $scope.checkWorkoutR();
+        },200);
+    };
+
+    $scope.showCallendarDiet = function () {
+        $scope.numberOfDays = $scope.dataCalendar[$scope.monthToday].numberOfDays;
+        $scope.getCallendarForDiet($scope.monthToday);
+    };
+
+    $scope.showDiet = function (id, month) {
+        console.log(id+" "+month);
+      var text = '#'+id+'-'+month;
+      $(text).animate({height: '+300px'},1000,'linear');
     };
 
     $scope.getDataOfHistory = function () {
         $http.get("PHP/getDataToHistory.php").then(function (response) {
             $scope.dataToHistory = response.data;
         });
+    };
+
+    $scope.getDataToWorkout =function () {
+        $http.get("PHP/getDataToWorkout.php").then(function (response) {
+            $scope.dataToWorkout = response.data;
+            $scope.id =
+            console.log($scope.dataToWorkout);
+        });
+    };
+
+    $scope.deleteWorkout = function (id) {
+        console.log("Dzialam "+id);
+        $http.get("PHP/deleteWorkout.php",{params:{id: id}}).then(function (res) {
+            $scope.done = res.data;
+        })
     };
 
     $scope.calculate = function (data) {
@@ -214,6 +268,7 @@ app.controller('mainCtrl',['$scope','$http','$location', function ($scope, $http
                 $scope.includeView = 'View/training.php';
                 break;
             case 4:
+                $scope.showCallendarDiet();
                 $scope.includeView = 'View/diet.php';
                 break;
         }
@@ -226,11 +281,60 @@ app.controller('mainCtrl',['$scope','$http','$location', function ($scope, $http
     };
 
     $scope.addWorkout = function (newTraining) {
-        $http.get("PHP/addSelectTraining.php",{params:{part:newTraining.part, description: newTraining.description}})
+        $http.get("PHP/addWorkout.php",{params:{part:newTraining.part, description: newTraining.description}})
             .then(function (response) {
                 $scope.done = response.data;
+                var date = new Date();
+                $scope.date = $scope.done[0]+"-"+($scope.done[1]+1)+"-"+date.getFullYear();
                 $('#myModal').modal('show');
             })
-    }
+    };
 
+    $scope.checkWorkoutS = function () {
+        var array = $scope.dataToWorkout;
+        $('.daysS').each(function () {
+            var id = $(this).attr('content');
+            var dayMonth = id.split(',');
+            var day = dayMonth[0];
+            var month = dayMonth[1];
+            if (array[month][day]!=undefined) {
+                $(this).addClass('isWorkout');
+                $(this).attr('href','');
+                $(this).bind('click',function () {
+                    $scope.id = array[parseInt(month)][day].id;
+                    var text = "<p>"+array[parseInt(month)][day].part+"</p><p>"+array[parseInt(month)][day].description+"</p>";
+                    $('#textModal').html(text);
+                    $('#buttonToDelete').html("<button class='btn btn-danger' ng-click=\"deleteWorkout("+$scope.id+")\">Delete</button>");
+                    $('#modalWorkout').modal('show');
+                });
+            } else {
+                $(this).removeClass('isWorkout');
+            }
+        });
+
+    };
+    $scope.checkWorkoutR = function () {
+        var array = $scope.dataToWorkout;
+        $('.daysR').each(function () {
+            var id = $(this).attr('content');
+            var dayMonth = id.split(',');
+            var day = dayMonth[0];
+            var month = dayMonth[1];
+            if (array[month][day]!=undefined) {
+                $(this).addClass('isWorkout');
+                $(this).attr('href','');
+                $(this).bind('click',function () {
+                    $scope.dataWorkout = array[parseInt(month)][day].description;
+                    $scope.id = array[parseInt(month)][day].id;
+                    var text = "<p>"+array[parseInt(month)][day].part+"</p><p>"+array[parseInt(month)][day].description+"</p>";
+                    $('#textModal').html(text);
+                    $('#buttonToDelete').html("<button class='btn btn-danger' ng-click='deleteWorkout("+$scope.id+")'>Delete</button>");
+                    $('#modalWorkout').modal('show');
+                });
+            } else {
+                $(this).removeClass('isWorkout');
+            }
+        });
+    }
 }]);
+

@@ -36,7 +36,7 @@
     <div id="banner" ng-hide="loginPanel">
         <div class="center-wrap">
             <div class="button">
-                <a href="registerForm.php">Register<span class="shift"><span class="glyphicon glyphicon-arrow-right"</span></a>
+                <a href="registerForm.php">Register<span class="shift"><span class="glyphicon glyphicon-arrow-right"></span></span></a>
                 <div class="mask"></div>
             </div>
         </div>
@@ -67,6 +67,19 @@
         <div ng-hide="loginPanel" ng-include="viewFlag ? 'View/calculate.php' : 'View/formBMR.php'">
         </div>
         <div ng-show="loginPanel" ng-include="includeView">
+        </div>
+        <div class="modal fade" role="dialog" id="modalWorkout">
+            <div class="modal-content text-center">
+                <div class="modal-header">
+                    <h2>Your workout for this day:</h2>
+                </div>
+                <div class="modal-body">
+                    <p id="textModal" class="text-center">
+                        {{dataWorkout}}
+                    </p>
+                    <div id="buttonToDelete"></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -35,4 +35,14 @@ class DataBaseTraining {
 
         return $result;
     }
+
+    function deleteElement(mysqli $db,$id){
+        $sql = "DELETE FROM trening WHERE id='".$id."'";
+        $result = $db->query($sql);
+        if($result){
+            echo "True";
+        } else {
+            echo "False";
+        }
+    }
 }

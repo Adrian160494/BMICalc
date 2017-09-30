@@ -59,7 +59,7 @@ $_SESSION['month'] = $_GET['month'];
                         <label class="font">Muscule part: </label>
                     </div>
                     <div class="col-xs-8">
-                        <select ng-model="newTraining.part" class="form-control input-lg">
+                        <select ng-model="newTraining.part" class="form-control input-lg" required>
                             <option value="" >(Choose the proper part)</option>
                             <optgroup label="BigParties">
                                 <option value="Chest" label="Chest">Chest</option>
@@ -94,17 +94,21 @@ $_SESSION['month'] = $_GET['month'];
         </div>
         <div class="navigation-footer text-center">
             <div class="btn btn-info ">
-                <a href="/index.php">Return <span class="glyphicon glyphicon-arrow-right"></span></a>
+                <a href="index.php">Return <span class="glyphicon glyphicon-arrow-right"></span></a>
             </div>
         </div>
-        <div class="modal" id="myModal">
-            <div class="modal-header">
-                <h2>Adding the new Workout!</h2>
+        <div class="panel-default modal fade" id="myModal" role="dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h2>Adding the new Workout!</h2>
+                </div>
+                <div class="modal-body text-center">
+                    <p>The new workout has been added! Return to the home page</p>
+                    <p>Date of the workout: {{date}}</p>
+                    <p class="text-center"><button class="btn btn-success"><a href="index.php">Return</a></button></p>
+                </div>
             </div>
-            <div class="modal-body">
-                <p>The new workout has been added! Return to the home page</p>
-                <p class="text-center"><button class="btn btn-success"><a href="index.php">Return</a></button></p>
-            </div>
+
         </div>
     </div>
 </div>
