@@ -34,18 +34,18 @@ switch($firstDayOfMonth){
         break;
 }
 
-$callendar = "<div class='col-xs-12' style='margin:auto'><div class='row'>";
+$callendar = "<div class='col-xs-12' style='margin:0 auto'><div class='row'>";
 for($k=0;$k<7;$k++){
     if ($k==0 || $k==6){
-        $callendar .= "<div class='col-xs-12 daysText red' style='width: 10%;' >".$arraysDays[$k]."</div>";
+        $callendar .= "<div class=' col-md-1 col-sm-1 daysText red daysDesc'  >".$arraysDays[$k]."</div>";
     }else{
-        $callendar .= "<div class='col-xs-12 daysText' style='width: 10%;' >".$arraysDays[$k]."</div>";
+        $callendar .= "<div class=' col-md-1 col-sm-1 daysText daysDesc'  >".$arraysDays[$k]."</div>";
     }
 }
 $callendar .= "</div>";
 $callendar .= "<div class='row'>";
 for($n=0;$n<$firstDayOfMonth;$n++){
-    $callendar .= "<div class='col-xs-12 daysText' style='width: 10%;background-color: rgba(250,250,250,0.1);'></div>";
+    $callendar .= "<div class=' col-md-1 col-sm-1 daysText adding' style='width: 10%;background-color: rgba(250,250,250,0.1);'></div>";
 }
 for($i=0;$i<$numberOfDays;$i++){
 
@@ -58,15 +58,15 @@ for($i=0;$i<$numberOfDays;$i++){
         $counter =0;
     }
     if($counter==0 || $counter==6){
-        $callendar .= "<div class='daysS col-xs-12' style='width: 10%;' content='$id,$month'><a id='$id-$month' href='addTraining.php?day=".$id."&month=".$month."' >".$id."</a><p id='".$id."-".$month."'></p></div>";
+        $callendar .= "<div class='daysS col-md-1 col-sm-1 ' content='$id,$month'><a id='$id-$month' href='addTraining.php?day=".$id."&month=".$month."' style='color: red' >".$id."<span class='dayHide' style='color: red'>".$arraysDays[$counter]."</span></a><p id='".$id."-".$month."'></p></div>";
     } else{
-        $callendar .= "<div class='daysR col-xs-12' style='width: 10%;' content='$id,$month'><a id='$id-$month' href='addTraining.php?day=".$id."&month=".$month."'>".$id."</a><p id='".$id."-".$month."'></p></div>";
+        $callendar .= "<div class='daysR col-md-1 col-sm-1 ' content='$id,$month'><a id='$id-$month' href='addTraining.php?day=".$id."&month=".$month."'>".$id."<span class='dayHide'>".$arraysDays[$counter]."</span></a><p id='".$id."-".$month."'></p></div>";
     }
     $counter++;
 
     $firstDayOfMonth++;
 }
-$callendar .="</div>";
+$callendar .="</div><div class='descriptionTraining col-md-5 col-sm-5 ' ><p>Choose the day in the callendar and specify the training for that day!</p></div>";
 
 echo $callendar;
 

@@ -1,8 +1,5 @@
 @media screen and (max-width: 350px){
     #callendar{
-        position: relative;
-        left: 4%;
-        width: 80%;
     }
     #buttonShowHide{
         display: block;
@@ -41,6 +38,30 @@
         background-color: rgba(10,10,10,0.8);
         width:100%;
     }
+
+    .daysS{
+        width:100%;
+        border-radius: 40px;
+    }
+    .daysR{
+        width:100%;
+        border-radius: 40px;
+    }
+
+    .daysDesc{
+        display: none;
+    }
+
+    .dayHide{
+        display: block;
+    }
+    .descriptionTraining{
+        display: none;
+    }
+
+    .adding{
+        display: none;
+    }
 }
 @media screen and (min-width: 350px) and (max-width: 500px){
     #loginForm{
@@ -75,14 +96,15 @@
         position: relative;
         width:350px;
     }
+    .daysDesc{
+        display: none;
+    }
     .description{
         position: absolute;
         top: 20%;
         left:21%;
     }
     #callendar{
-        position: relative;
-        left: 10%;
     }
     .textdescription{
         font-size: 8px;
@@ -93,6 +115,20 @@
     .footer{
         background-color: rgba(10,10,10,0.8);
         width:100%;
+    }
+    .daysS{
+        width:100%;
+        border-radius: 40px;
+    }
+    .daysR{
+        width:100%;
+        border-radius: 40px;
+    }
+    .dayHide{
+        display: block;
+    }
+    .adding{
+        display: none;
     }
 }
 
@@ -138,18 +174,32 @@
         top:30px;
     }
     #callendar{
-        position: relative;
-        left:12%;
     }
     .description{
         width:200px;
     }
+
+    .daysDesc{
+        display: none;
+    }
+    .daysS{
+        width:100%;
+        border-radius: 40px;
+    }
+    .daysR{
+        width:100%;
+        border-radius: 40px;
+    }
+
+    .dayHide{
+        display:block;
+    }
+
+
 }
 
-@media screen and (min-width: 561px) and (max-width: 700px){
+@media screen and (min-width: 561px) and (max-width: 768px){
     #callendar{
-        position: relative;
-        left: 14%;
     }
     #bannerIMG{
         display:none;
@@ -191,8 +241,23 @@
     .description{
         width:200px;
     }
+    .daysS{
+        width:100%;
+        border-radius: 40px;
+    }
+    .daysR{
+        width:100%;
+        border-radius: 40px;
+    }
+    .daysDesc{
+        display: none;
+    }
+    .dayHide{
+        display:block;
+    }
+
 }
-@media screen and (min-width: 701px){
+@media screen and (min-width: 769px){
     #loginForm{
         display: block;
     }
@@ -234,9 +299,6 @@
     }
 
     #callendar{
-        position: relative;
-        left: 14%;
-        width: 80%;
     }
 
     .description{
@@ -258,13 +320,23 @@
     .descriptionTraining p{
         font-size: 16px;
     }
+    .daysS{
+        width:10%;
+    }
+    .daysR{
+        width:10%;
+    }
+    .dayHide{
+        display:none;
+    }
 }
 
 body{
     background-image: url("../img/background.jpg");
-    background-attachment: inherit;
+    background-attachment: fixed;
     background-size: cover;
     height:100%;
+    width: 100%;
     padding:0;
 
 }
@@ -464,7 +536,7 @@ td{
 }
 
 #callendarDesc{
-    position: relative;
+
 }
 
 .daysR a, .daysS a{
@@ -479,6 +551,10 @@ td{
 
 .fontDiet {
     font-size: 20px;
+}
+
+.diet{
+    width: 100%;
 }
 
 
