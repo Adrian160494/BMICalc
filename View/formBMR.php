@@ -14,10 +14,10 @@
             <div class="navigation-body">
                 <form class="form-horizontal" novalidate ng-submit="calculate(data)">
                     <div class="form-group">
-                        <div class="col-xs-5 text-right">
+                        <div class="col-xs-7 ">
                             <label class="font">Sex:</label>
                         </div>
-                        <div class="col-xs-7 text-center">
+                        <div class="col-xs-5 text-center">
                             <select name="sex" class="form-control" ng-model="data.sex">
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
@@ -25,34 +25,34 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-xs-5 text-right">
+                        <div class="col-xs-7 ">
                             <label class="font">Weight(kg):</label>
                         </div>
-                        <div class="col-xs-7 text-center">
+                        <div class="col-xs-5 ">
                             <input class="form-control" type="number" name="weight" ng-model="data.weight"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-xs-5 text-right">
+                        <div class="col-xs-7 ">
                             <label class="font">Height(cm):</label>
                         </div>
-                        <div class="col-xs-7 text-center">
+                        <div class="col-xs-5 text-center">
                             <input class="form-control" type="number" name="height" ng-model="data.height"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-xs-5 text-right">
+                        <div class="col-xs-7 ">
                             <label class="font">Age: </label>
                         </div>
-                        <div class="col-xs-7 text-center">
+                        <div class="col-xs-5 text-center">
                             <input class="form-control" type="number" name="age" ng-model="data.age"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-xs-5 text-right">
+                        <div class="col-xs-7 ">
                             <label class="font">Activity:</label>
                         </div>
-                        <div class="col-xs-7 text-center">
+                        <div class="col-xs-5 text-center">
                             <select name="activity" class="form-control" ng-model="data.activity">
                                 <option value="1.0">1.0 - lack of activity</option>
                                 <option value="1.2">1.2 - low activity (1-2 trainings in week)</option>

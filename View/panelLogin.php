@@ -3,9 +3,9 @@
             <input class="form-control-inverse" type="text" name="login" placeholder="Login" ng-model="user.login"/>
             <input class="form-control-inverse" type="password" name="password" placeholder="Password" ng-model="user.password"/>
         </div>
-    <div class="form-group">
-        <button type="submit" class="fill" ><span class="text">Login</span></button>
-        <button type="reset" class="fill2"><span class="text">Reset</span></button>
+    <div class=" text-center">
+        <button type="submit" class="btn fill">Login</button>
+        <button type="reset" class="btn fill2">Reset</button>
     </div>
 </form>
 <div class="text-center" style="color: red" ng-show="error">

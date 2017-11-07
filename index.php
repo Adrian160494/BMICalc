@@ -1,5 +1,5 @@
-<!doctype html>
-<html class="no-js" lang="" ng-app="app" >
+<!DOCTYPE html>
+<html ng-app="app" >
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -14,6 +14,9 @@
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Frijole|Sedgwick+Ave+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sigmar+One" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Chewy|Kalam" rel="stylesheet">
     <!--JS Files-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -28,25 +31,23 @@
         <div class="col-xs-12">
             <div id="loginPanel">
                 <div ng-include="loginPanel ? 'View/loggedIn.php' : 'View/panelLogin.php'"></div>
-                <div id="buttonShowHide" class="btn btn-default" ng-hide="loginPanel" ng-click="showLogin()"><span id="showHide" class="glyphicon glyphicon-arrow-down"></span></div>
+                <div class="text-center" id="buttonShowHide" ng-hide="loginPanel" ng-click="showLogin()"><i id="iconLogin" class="material-icons" style="font-size: 60px; color: yellow">expand_more</i></div>
             </div>
         </div>
     </div>
-    <hr>
     <div id="banner" ng-hide="loginPanel">
-        <div class="center-wrap">
+        <div class="center-wrap text-center">
             <div class="button">
                 <a href="registerForm.php">Register<span class="shift"><span class="glyphicon glyphicon-arrow-right"></span></span></a>
                 <div class="mask"></div>
             </div>
         </div>
         <figure id="bannerIMG">
-            <img src="img/banner.jpg" alt="doesn't word" width="100%"/>
-            <hr>
+            <img id="imgBanner" src="img/banner.jpg" alt="doesn't word" width="100%"/>
         </figure>
     </div>
     <div class="container-fluid">
-        <div class="navbar-inverse" ng-show="loginPanel">
+        <div id="loginPanel" class="navbar-inverse" ng-show="loginPanel">
             <div class="navbar-header">
                 <span class="navHead">It's your life</span>
                 <button type="button" data-toggle="collapse" data-target="#navigation" class="navbar-toggle" >
@@ -57,10 +58,10 @@
             </div>
             <div class="collapse navbar-collapse" id="navigation">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="liFont nav-tabs"><a href="" ng-click="chooseView(1)">Home</a> </li>
-                    <li class="liFont"><a href="" ng-click="chooseView(2)">History</a></li>
-                    <li class="liFont"><a href="" ng-click="chooseView(3)">Training</a></li>
-                    <li class="liFont"><a href="" ng-click="chooseView(4)">Diet</a></li>
+                    <li class="liFont"><a href="" ng-click="chooseView(1)"><span style="font-size: 20px;" class="glyphicon glyphicon-home"></span> Home</a> </li>
+                    <li class="liFont"><a href="" ng-click="chooseView(2)"><span style="font-size: 20px;" class="glyphicon glyphicon-th-list"></span> History</a></li>
+                    <li class="liFont"><a href="" ng-click="chooseView(3)"><span style="font-size: 20px;" class="material-icons">directions_bike</span> Training</a></li>
+                    <li class="liFont"><a href="" ng-click="chooseView(4)"><span style="font-size: 20px;" class="material-icons">restaurant</span> Diet</a></li>
                 </ul>
             </div>
         </div>
@@ -84,14 +85,13 @@
     </div>
 </div>
     <div class="footer">
-        <br/>
-        <div class="text-left">
+        <div id="media" class="pull-right">
             <a href="https://www.facebook.com/adr.ian.395017"><img src="img/face2.png" width="30px"/></a>
             <a href="#"><img src="img/twit2.png" width="30px"/></a>
             <a href="#"><img src="img/insta.png" width="30px"/></a>
         </div>
-        <div class="text-left">
-            <span>Copyright by Adrian Ciejka <span class="glyphicon glyphicon-copyright-mark"></span></span>
+        <div id="copyright" class="text-center">
+            <span>Copyright 2017 by Adrian Ciejka <span class="glyphicon glyphicon-copyright-mark"></span></span>
         </div>
     </div>
 </body>

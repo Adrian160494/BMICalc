@@ -1,4 +1,40 @@
 @media screen and (max-width: 350px){
+    body{
+        background: url('../img/backgroundPh.jpg') !important;
+        background-attachment: fixed !important;
+        background-size: cover !important;
+        background-repeat:no-repeat !important;
+        height:100% !important;
+        width: 350px !important;
+    }
+
+    h1{
+        font-size:30px !important;
+    }
+    h3{
+        font-size:20px !important;
+    }
+
+    .dietButton{
+        padding: 0 !important;
+        font-size:15px !important;
+    }
+
+    .month{
+        font-size: 15px;
+    }
+
+    .fontDiet{
+        font-size:15px !important;
+    }
+    .form-group, label{
+        text-align: left !important;
+        font-size: 17px !important;
+    }
+
+    .headline{
+        font-size: 20px !important;
+    }
     #callendar{
     }
     #buttonShowHide{
@@ -17,14 +53,15 @@
         left:21%;
     }
     .button{
-        position: static;
-        width: 20%;
+        position: relative;
+        margin: 0 auto;
+        padding: 20px 15px !important;
+        box-shadow: 0 0 10px 5px white;
     }
     .center-wrap{
-        position: static;
-        margin: auto;
-        width: 30%;
+        position: relative;
         height: 5%;
+        margin:0 auto;
     }
     #delete{
         position: relative;
@@ -37,15 +74,29 @@
     .footer{
         background-color: rgba(10,10,10,0.8);
         width:100%;
+        height:80px;
+    }
+    #copyright>span{
+        font-size: 15px;
     }
 
     .daysS{
         width:100%;
-        border-radius: 40px;
+        height:100px;
+        -webkit-border-radius: 30px;
+        -moz-border-radius: 30px;
+        border-radius: 30px;
+        background: url('../img/listxs.png');
+        background-repeat: no-repeat;
     }
     .daysR{
         width:100%;
-        border-radius: 40px;
+        height:100px;
+        -webkit-border-radius: 30px;
+        -moz-border-radius: 30px;
+        border-radius: 30px;
+        background: url('../img/listxs.png');
+        background-repeat: no-repeat;
     }
 
     .daysDesc{
@@ -54,6 +105,7 @@
 
     .dayHide{
         display: block;
+        font-size: 15px !important;
     }
     .descriptionTraining{
         display: none;
@@ -62,8 +114,62 @@
     .adding{
         display: none;
     }
+
+    .hrefCallendar{
+        position: absolute;
+        left:0%;
+        font-size:35px;
+        margin: 18px 34px;
+    }
+	
+	.addedClass{
+		position: absolute;
+        left:0%;
+        font-size:35px ;
+		margin: 18px 23px;
+	}
+    .dayHide{
+        position:absolute;
+        font-size: 20px;
+        top: calc(50% - 15px);
+        left:50%;
+
+    }
+    .daysR a, .daysS a{
+        text-decoration: none;
+        color: white;
+        font-size:35px;
+    }
 }
 @media screen and (min-width: 350px) and (max-width: 500px){
+    body{
+        background: url('../img/backgroundPh.jpg') !important;
+        background-attachment: fixed !important;
+        background-size: cover !important;
+        background-repeat:no-repeat !important;
+        height:100% !important;
+    }
+
+    h1{
+        font-size:30px !important;
+    }
+    h3{
+        font-size:20px !important;
+    }
+    .dietButton{
+        font-size:15px !important;
+    }
+    .month{
+        font-size: 15px;
+    }
+    .fontDiet{
+        font-size:15px !important;
+    }
+    .form-group, label{
+        text-align: left !important;
+        font-size: 17px !important;
+    }
+
     #loginForm{
         display: none;
     }
@@ -74,19 +180,22 @@
         display: block;
     }
     .button{
-        position: static;
-        width: auto;
+        position: relative;
+        margin: 0 auto;
+        padding: 20px 15px !important;
+        box-shadow: 0 0 50px 5px white;
     }
     .center-wrap{
-        position: static;
+        position: relative;
         margin: auto;
-        width: 25%;
-        height: 5%;
     }
     .footer{
-        background-color: rgba(100,100,100,0.5);
-        height:100px;
+        background-color: rgba(10,10,10,0.8);
         width:100%;
+        height:80px;
+    }
+    #copyright>span{
+        font-size: 15px;
     }
     .btn-group{
         position:absolute;
@@ -118,11 +227,21 @@
     }
     .daysS{
         width:100%;
-        border-radius: 40px;
+        height:100px;
+        -webkit-border-radius: 30px;
+        -moz-border-radius: 30px;
+        border-radius: 30px;
+        background: url('../img/listxs.png');
+        background-repeat: no-repeat;
     }
     .daysR{
         width:100%;
-        border-radius: 40px;
+        height:100px;
+        -webkit-border-radius: 30px;
+        -moz-border-radius: 30px;
+        border-radius: 30px;
+        background: url('../img/listxs.png');
+        background-repeat: no-repeat;
     }
     .dayHide{
         display: block;
@@ -130,9 +249,36 @@
     .adding{
         display: none;
     }
+    .hrefCallendar{
+        position: absolute;
+        left:0%;
+        font-size:35px;
+        margin: 18px 34px;
+    }
+	
+	.addedClass{
+		position: absolute;
+        left:0%;
+        font-size:35px ;
+		margin: 18px 23px;
+	}
+
+    .dayHide{
+        position:absolute;
+        font-size: 20px;
+        top: calc(50% - 15px);
+        left:50%;
+
+    }
+    .daysR a, .daysS a{
+        text-decoration: none;
+        color: white;
+        font-size:35px;
+    }
+
 }
 
-@media screen and (min-width: 501px) and (max-width: 560px){
+@media screen and (min-width: 500px) and (max-width: 560px){
     #bannerIMG{
         display:none;
     }
@@ -140,9 +286,11 @@
         display: none;
     }
     .button{
-        position: static;
-        width: auto;
-        font-size: 12px;
+        position: relative;
+        font-size: 10px;
+        margin: 0 auto;
+        padding: 20px 15px !important;
+        box-shadow: 0 0 50px 5px white;
     }
     .card{
         position: relative;
@@ -154,12 +302,9 @@
         left:21%;
     }
     .center-wrap{
-        position: static;
+        position: relative;
         margin: auto;
         top: 60%;
-        left: 8%;
-        width: 25%;
-        height: 5%;
     }
     .footer{
         background-color: rgba(10,10,10,0.8);
@@ -184,30 +329,79 @@
     }
     .daysS{
         width:100%;
-        border-radius: 40px;
+        height:88px;
+        -webkit-border-radius: 30px;
+        -moz-border-radius: 30px;
+        border-radius: 30px;
+        background: url('../img/listxs.png');
+        background-size: cover;
+        background-repeat: no-repeat;
     }
     .daysR{
         width:100%;
-        border-radius: 40px;
+        height:88px;
+        -webkit-border-radius: 30px;
+        -moz-border-radius: 30px;
+        border-radius: 30px;
+        background: url('../img/listxs.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .daysText{
+        display:none;
     }
 
     .dayHide{
         display:block;
     }
+    .hrefCallendar{
+        position: absolute;
+        left:0%;
+        font-size:35px;
+        margin: 18px 34px;
+		}
 
+	.addedClass{
+		position: absolute;
+        left:0%;
+        font-size:35px ;
+		margin: 18px 23px;
+	}
+	
+    .dayHide{
+        position:absolute;
+        font-size: 20px;
+        top: calc(50% - 15px);
+        left:50%;
+
+    }
+    .daysR a, .daysS a{
+        text-decoration: none;
+        color: white;
+        font-size:35px;
+    }
+    .footer{
+        background-color: rgba(10,10,10,0.8);
+        width:100%;
+        height:80px;
+    }
+    #copyright>span{
+        font-size: 20px;
+    }
 
 }
 
-@media screen and (min-width: 561px) and (max-width: 768px){
+@media screen and (min-width: 560px) and (max-width: 768px){
     #callendar{
     }
     #bannerIMG{
         display:none;
     }
     .button{
-        position: static;
-        width: auto;
-        font-size: 12px;
+        position: relative;
+        margin:0 auto;
+        padding: 20px 15px !important;
+        box-shadow: 0 0 50px 5px white;
     }
     .card{
         position: relative;
@@ -219,12 +413,9 @@
         left:21%;
     }
     .center-wrap{
-        position: static;
-        margin: auto;
+        position: relative;
+        margin: 0 auto;
         top: 60%;
-        left: 8%;
-        width: 25%;
-        height: 5%;
     }
     .footer{
         background-color: rgba(10,10,10,0.8);
@@ -243,11 +434,21 @@
     }
     .daysS{
         width:100%;
-        border-radius: 40px;
+        height:100px;
+        -webkit-border-radius: 30px;
+        -moz-border-radius: 30px;
+        border-radius: 30px;
+        background: url('../img/listxs.png');
+        background-repeat: no-repeat;
     }
     .daysR{
         width:100%;
-        border-radius: 40px;
+        height:100px;
+        -webkit-border-radius: 30px;
+        -moz-border-radius: 30px;
+        border-radius: 30px;
+        background: url('../img/listxs.png');
+        background-repeat: no-repeat;
     }
     .daysDesc{
         display: none;
@@ -256,8 +457,43 @@
         display:block;
     }
 
+    .daysText{
+        display:none;
+    }
+
+    #buttonShowHide{
+        display: none;
+    }
+
+    .hrefCallendar{
+        position: absolute;
+        left:0%;
+        font-size:35px;
+        margin: 18px 34px;
+    }
+	
+	.addedClass{
+		position: absolute;
+        left:0%;
+        font-size:35px ;
+		margin: 18px 23px;
+	}
+
+    .dayHide{
+        position:absolute;
+        font-size: 20px;
+        top: calc(50% - 15px);
+        left:50%;
+
+    }
+    .daysR a, .daysS a{
+        text-decoration: none;
+        color: white;
+        font-size:35px;
+    }
+
 }
-@media screen and (min-width: 769px){
+@media screen and (min-width: 768px){
     #loginForm{
         display: block;
     }
@@ -267,13 +503,19 @@
     .center-wrap{
         position: absolute;
         top: 60%;
-        left: 8%;
-        width: 18%;
+        left:10%;
         height: 5%;
     }
+    .button{
+        width: 500px;
+        padding: auto;
+        box-shadow: 20px 20px 100px 10px grey;
+        font-size: 25px;
+    }
+
     .footer{
         background-color: rgba(100,100,100,0.5);
-        height:100px;
+        height:60px;
         width:100%;
     }
 
@@ -307,13 +549,12 @@
 
     .descriptionTraining{
         position: absolute;
+        width:30%;
+        left:70%;
+        top: 10%;
         text-align: center;
         background-color: rgba(255,255,255,0.2);
-        width: 15%;
         border: 4px solid white;
-        padding:5px;
-        left: 80%;
-        top: 10%;
         border-radius: 30px;
 
     }
@@ -329,15 +570,38 @@
     .dayHide{
         display:none;
     }
+
+    #banner{
+        border-top: 2px solid white;
+        border-bottom:2px solid white;
+    }
+    .daysS, .daysR, .daysText{
+        background: -webkit-radial-gradient(grey,grey,lightseagreen);
+        border: 2px solid white;
+    }
+
+    .daysS:hover, .daysR:hover{
+        background: -webkit-radial-gradient(lightseagreen,grey,grey);
+        border: 2px solid black;
+    }
+    .daysText{
+        border:4px solid white;
+    }
+    .daysR a, .daysS a{
+        text-decoration: none;
+        color: white;
+        font-size:16px;
+    }
+
 }
 
 body{
     background-image: url("../img/background.jpg");
     background-attachment: fixed;
     background-size: cover;
+    background-repeat:no-repeat;
     height:100%;
     width: 100%;
-    padding:0;
 
 }
 #loginPanel{
@@ -348,10 +612,10 @@ body{
 }
 .wrapper{
     min-height:100%;
-    margin-bottom:120px;
+    margin-bottom:70px;
 }
 .footer{
-    position: fixed;
+    position: relative;
     bottom: 0;
     color:white;
     font-family: 'Gloria Hallelujah';
@@ -362,7 +626,7 @@ li{
     font-size: 20px;
 }
 .headline{
-    font-family: 'Pacifico', cursive;
+    font-family: 'Sigmar One', cursive;
     color: rgba(250,250,60,0.5);
 }
 .font, p{
@@ -392,6 +656,16 @@ table td{
 }
 #banner{
     position: relative;
+    padding: 0;
+}
+
+#bannerIMG{
+    margin:0 0;
+}
+
+#imgBanner{
+    margin:0;
+    padding:0;
 }
 .button {
     background: none center center no-repeat;
@@ -399,9 +673,9 @@ table td{
     border: 5px solid rgba(20,20,20,1);
     text-transform: uppercase;
     letter-spacing: 0.3rem;
-    padding: 20px 15px;
+    padding: 10px 15px;
     text-align: center;
-    width: 140%;
+    width: 240px;
     height: 70px;
     cursor: pointer;
     overflow: hidden;
@@ -413,7 +687,9 @@ table td{
     font-family: 'Sitka Subheading';
     font-weight: 900;
     text-decoration: none;
+    font-size: 17px;
 }
+
 .button .mask {
     background: #fff;
     background: rgba(255,255,255,0.5);
@@ -447,19 +723,29 @@ table td{
     padding-left: 5px;
 }
 .fill {
-    --color: lightgreen;
-    --hover: lightgreen;
+    color:black;
+    width:70px;
+    height:30px;
 }
-.fill:hover,
-.fill:focus {
-    box-shadow: inset 0 0 0 2em var(--hover);
+.fill:hover{
+    -webkit-box-shadow: 0px 0 50px 5px greenyellow;
+    -moz-box-shadow: 0px 0 50px 5px greenyellow;
+    box-shadow: 0px 0px 50px 5px greenyellow;
+    transform: rotate(360deg);
+    transition: 1s;
+
 }
 .fill2 {
-    --color: lightpink;
-    --hover: rgba(200,0,0,0.7);
+    color:black;
+    width:70px;
+    height:30px;
 }
-.fill2:hover, .fill2:focus {
-    box-shadow: inset 0 0 0 2em var(--hover);
+.fill2:hover {
+    -webkit-box-shadow: 0px 0px 50px 5px red;
+    -moz-box-shadow: 0px 0px 50px 5px red;
+    box-shadow: 0px 0px 50px 5px red;
+    transform: rotate(360deg);
+    transition: 1s;
 }
 .fill:hover {
     color: green;
@@ -467,6 +753,10 @@ table td{
 .fill2:hover {
     color: red;
 }
+.text{
+    color: white;
+}
+
 .text{
     color: white;
 }
@@ -502,11 +792,10 @@ td{
 .white {
     color: white;
 }
+
 .daysS{
-    background-color: rgba(250,250,250,0.5);
     color: red;
     margin: 3px;
-    border:2px solid white;
     cursor: pointer;
     font-size: 12px;
 }
@@ -514,10 +803,7 @@ td{
     background-color: rgba(250,250,250,0.9);
 }
 .daysR{
-
-    background-color: rgba(250,250,250,0.5);
     margin: 3px;
-    border:2px solid white;
     cursor: pointer;
     font-size: 12px;
 }
@@ -525,11 +811,9 @@ td{
     background-color: rgba(250,250,250,0.9);
 }
 .daysText{
-    background-color: rgba(250,250,250,0.5);
-    color: white;
+    color: black;
     margin: 3px;
-    border:2px solid white;
-    font-size: 12px;
+    font-size: 16px;
 }
 .red{
     color: red;
@@ -539,11 +823,6 @@ td{
 
 }
 
-.daysR a, .daysS a{
-    text-decoration: none;
-    color: white;
-    font-size:16px;
-}
 
 .isWorkout{
     border: 4px solid green;
@@ -557,6 +836,67 @@ td{
     width: 100%;
 }
 
+#dietDesc{
+    background-color: rgba(250,250,250,0.4);
+    margin-top: 10px;
+}
+
+#buttonShowHide{
+    cursor: pointer;
+}
+
+.form-group{
+    text-align: center;
+}
+
+#loginPanel{
+    padding:10px;
+}
+
+.loggedIn{
+    background-color:white;
+    color: black;
+    position: relative;
+    right:0;
+    padding:0 10px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+#release{
+    cursor: pointer;
+}
+
+.loginInfo{
+    display:none;
+    z-index:1000;
+    right:28px;
+    padding:20px;
+    position: absolute;
+    background-color: white;
+}
+
+.buttonNav:hover, .next:hover, .prev:hover{
+        -webkit-box-shadow: 0px 30px 100px 7px dodgerblue;
+    -moz-box-shadow: 0px 30px 100px 7px dodgerblue;
+    box-shadow: 0px 30px 100px 7px dodgerblue;
+}
+
+#copyright{
+    margin-top:10px;
+    position: relative;
+}
+
+#media{
+    position: absolute;
+    bottom:0;
+    right:0;
+}
+
+.dietButton{
+    font-size: 20px;
+}
 
 
 

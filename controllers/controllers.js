@@ -165,13 +165,11 @@ app.controller('mainCtrl',['$scope','$http','$location','$interval','$timeout', 
     $scope.getDataToWorkout =function () {
         $http.get("PHP/getDataToWorkout.php").then(function (response) {
             $scope.dataToWorkout = response.data;
-            console.log($scope.dataToWorkout);
         });
     };
     $scope.getDataToDiet =function () {
         $http.get("PHP/getDataToDiet.php").then(function (response) {
             $scope.dataToDiet = response.data;
-            console.log($scope.dataToDiet);
         });
     };
 
@@ -192,18 +190,32 @@ app.controller('mainCtrl',['$scope','$http','$location','$interval','$timeout', 
             })
     };
 
+    $scope.releaseDiv = function () {
+        $scope.div = $('.loginInfo');
+        if ($scope.div.css("display") == "none") {
+            $scope.div.show('blind', 1000);
+        } else {
+            $scope.div.hide("blind", 1000);
+        }
+    }
+
     $scope.showLogin = function () {
         $scope.formLogin = $("#loginForm");
-        $scope.showHide = $("#showHide");
+        $scope.icon = $("#iconLogin");
         if ($scope.formLogin.css("display") == "none") {
-            $scope.formLogin.show("blind", 1000);
+            $scope.formLogin.show('blind', 1000);
+            $scope.icon.hide('scale',1000);
+            setTimeout(function () {
+                $scope.icon.html('expand_less');
+            },1000);
+            $scope.icon.show('scale',1500);
         } else {
             $scope.formLogin.hide("blind", 1000);
-        }
-        if ($scope.showHide.hasClass("glyphicon-arrow-up")) {
-            $scope.showHide.removeClass("glyphicon-arrow-up").addClass("glyphicon-arrow-down");
-        } else {
-            $scope.showHide.removeClass("glyphicon-arrow-down").addClass("glyphicon-arrow-up");
+            $scope.icon.hide('scale',1000);
+            setTimeout(function () {
+                $scope.icon.html('expand_more');
+            },1000);
+            $scope.icon.show('scale',1500);
         }
     };
 
@@ -374,7 +386,7 @@ app.controller('mainCtrl',['$scope','$http','$location','$interval','$timeout', 
                 $(idButton).css('border','6px solid red');
                     $scope.idDiv = array2[parseInt(month2)][day2].id;
                     var text = array2[parseInt(month2)][day2];
-                    var textToFill = "<div style='background-color: rgba(100,100,100,0.5); overflow: auto'><p style='font-size: 25px; color: red'>Breakfast: </p><hr><p>"+text.breakfast+"</p><p style='font-size: 25px; color: red'> Lunch: </p><hr><p>"+text.lunch+"</p><p style='font-size: 25px; color: red'>Dinner: </p><hr><p>"+text.dinner+"</p><p style='font-size: 25px; color: red'>Second Dinner: </p><hr><p>"+text.dinner2+"</p><p style='font-size: 25px; color: red'>Supper: </p><hr><p >"+text.supper+"</p></div>";
+                    var textToFill = "<div style='margin-top: 20px; background-color: rgba(100,100,100,0.5); border:4px solid white; font-family: Kalam, cursive;'><p style='font-size: 25px; color: white'>BREAKFAST: </p><p>"+text.breakfast+"</p><p style='font-size: 25px; color: white'> LUNCH: </p><p>"+text.lunch+"</p><p style='font-size: 25px; color: white'>DINNER: </p><p>"+text.dinner+"</p><p style='font-size: 25px; color: white'>SECOND DINNER: </p><p>"+text.dinner2+"</p><p style='font-size: 25px; color: white'>SUPPER: </p><p >"+text.supper+"</p></div>";
                     $(idDivToFill).html(textToFill);
                     $(idButton).attr('disabled','disabled').attr('href','#');
                     var aButton = "#a-"+day2+"-"+month2;
