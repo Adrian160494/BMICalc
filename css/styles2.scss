@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great');
+@import url('https://fonts.googleapis.com/css?family=Frijole');
+
+body{
+  .loginPanel-container{
+    width:100%;
+    @media screen and (max-width:350px){
+      height:130px;
+    }
+    @media screen and (min-width:350px) and (max-width:500px){
+      height:130px;
+    }
+    @media screen and (min-width:500px) and (max-width:560px){
+      height:180px;
+    }
+    @media screen and (min-width:560px) and (max-width:768px){
+      height:180px;
+    }
+    @media screen and (min-width:768px){;
+      height:140px;
+    }
+    #loginPanel2{
+      border: 1px solid gray;
+      -webkit-box-shadow: 0 0 20px 4px white;
+      -moz-box-shadow: 0 0 30px 9px white;
+      box-shadow: 0 0 20px 4px white;
+      padding: 10px;
+      background: black;
+      z-index: 1001;
+      @media screen and (max-width:350px){
+        position: relative;
+        margin: 0 50px;
+      }
+      @media screen and (min-width:350px) and (max-width:500px){
+        position: relative;
+        margin: 0 50px;
+      }
+      @media screen and (min-width:500px) and (max-width:560px){
+        position: absolute;
+        width:320px;
+        left: calc(50% - 160px);
+      }
+      @media screen and (min-width:560px) and (max-width:768px){
+        position: absolute;
+        width:360px;
+        left: calc(50% - 190px);
+      }
+      @media screen and (min-width:768px){;
+        width:400px;
+        left: calc(50% - 200px);
+        position: absolute;
+      }
+
+      button, input{
+        @media screen and (max-width:350px){
+          font-size:12px;
+        }
+        @media screen and (min-width:350px) and (max-width:500px){
+          font-size:12px;
+        }
+        @media screen and (min-width:500px) and (max-width:560px){
+          font-size:12px;
+        }
+        @media screen and (min-width:560px) and (max-width:768px){
+          font-size:12px;
+        }
+        @media screen and (min-width:768px) and (max-width:992px){;
+          font-size:12px;
+        }
+        @media screen and (min-width:992px){
+          font-size:13px;
+        }
+      }
+    }
+  }
+  .form-bmr{
+    .bmr-heading{
+      font-family: 'Fredericka the Great', cursive;
+      h1{
+        @media screen and (max-width:350px){
+          font-size:15px;
+        }
+        @media screen and (min-width:350px) and (max-width:500px){
+          font-size:18px;
+        }
+        @media screen and (min-width:500px) and (max-width:560px){
+          font-size:25px;
+        }
+        @media screen and (min-width:560px) and (max-width:768px){
+          font-size:28px;
+        }
+        @media screen and (min-width:768px) and (max-width:992px){;
+          font-size:33px;
+        }
+        @media screen and (min-width:992px){
+          font-size:35px;
+        }
+      }
+      h3{
+        @media screen and (max-width:350px){
+          display:none;
+        }
+        @media screen and (min-width:350px) and (max-width:500px){
+          display:none;
+        }
+        @media screen and (min-width:500px) and (max-width:560px){
+          font-size:15px;
+        }
+        @media screen and (min-width:560px) and (max-width:768px){
+          font-size:18px;
+        }
+        @media screen and (min-width:768px) and (max-width:992px){;
+          font-size:25px;
+        }
+        @media screen and (min-width:992px){
+          font-size:26px;
+        }
+      }
+    }
+    .navigation{
+      .navigation-header{
+       .headline{
+         @media screen and (max-width:350px){
+           font-size:18px;
+         }
+         @media screen and (min-width:350px) and (max-width:500px){
+           font-size:18px;
+         }
+         @media screen and (min-width:500px) and (max-width:560px){
+           font-size:25px;
+         }
+         @media screen and (min-width:560px) and (max-width:768px){
+           font-size:28px;
+         }
+         @media screen and (min-width:768px) and (max-width:992px){;
+           font-size:33px;
+         }
+         @media screen and (min-width:992px){
+           font-size:35px;
+         }
+       }
+      }
+      .navigation-body{
+
+      }
+    }
+  }
+  .loggedIn{
+    p, a{
+      color:white;
+      @media screen and (max-width:350px){
+        font-size:12px;
+      }
+      @media screen and (min-width:350px) and (max-width:500px){
+        font-size:13px;
+      }
+      @media screen and (min-width:500px) and (max-width:560px){
+        font-size:14px;
+      }
+      @media screen and (min-width:560px) and (max-width:768px){
+        font-size:15px;
+      }
+      @media screen and (min-width:768px) and (max-width:992px){;
+        font-size:17px;
+      }
+      @media screen and (min-width:992px){
+        font-size:18px;
+      }
+    }
+    #loggedIn{
+      @media screen and (max-width:350px){
+        font-size:14px;
+      }
+      @media screen and (min-width:350px) and (max-width:500px){
+        font-size:15px;
+      }
+      @media screen and (min-width:500px) and (max-width:560px){
+        font-size:16px;
+      }
+      @media screen and (min-width:560px) and (max-width:768px){
+        font-size:17px;
+      }
+      @media screen and (min-width:768px) and (max-width:992px){;
+        font-size:19px;
+      }
+      @media screen and (min-width:992px){
+        font-size:20px;
+      }
+    }
+  }
+  .navbar-header{
+    .navHead{
+      font-family: 'Frijole', cursive;
+      @media screen and (max-width:350px){
+        font-size:23px;
+      }
+      @media screen and (min-width:350px) and (max-width:500px){
+        font-size:25px;
+      }
+      @media screen and (min-width:500px) and (max-width:560px){
+        font-size:28px;
+      }
+      @media screen and (min-width:560px) and (max-width:768px){
+        font-size:31px;
+      }
+      @media screen and (min-width:768px) and (max-width:992px){;
+        font-size:34px;
+      }
+      @media screen and (min-width:992px){
+        font-size:35px;
+      }
+    }
+  }
+  .navbar-collapse{
+    .navbar-nav{
+      li{
+        font-family: 'Frijole', cursive;
+        @media screen and (max-width:350px){
+          font-size:15px;
+        }
+        @media screen and (min-width:350px) and (max-width:500px){
+          font-size:16px;
+        }
+        @media screen and (min-width:500px) and (max-width:560px){
+          font-size:17px;
+        }
+        @media screen and (min-width:560px) and (max-width:768px){
+          font-size:20px;
+        }
+        @media screen and (min-width:768px) and (max-width:992px){;
+          font-size:21px;
+        }
+        @media screen and (min-width:992px){
+          font-size:23px;
+        }
+      }
+    }
+  }
+}
+
+.page-header{
+  h1{
+    font-family: 'Fredericka the Great', cursive;
+    letter-spacing: 6px;
+    text-shadow: 0 10px 20px white;
+    @media screen and (max-width:350px){
+      font-size:23px;
+    }
+    @media screen and (min-width:350px) and (max-width:500px){
+      font-size:25px;
+    }
+    @media screen and (min-width:500px) and (max-width:560px){
+      font-size:28px;
+    }
+    @media screen and (min-width:560px) and (max-width:768px){
+      font-size:31px;
+    }
+    @media screen and (min-width:768px) and (max-width:992px){;
+      font-size:34px;
+    }
+    @media screen and (min-width:992px){
+      font-size:38px;
+    }
+  }
+}
+
+.navigation2 {
+  box-shadow: 0 0 10px 5px white;
+  margin: 30px;
+  .navigation-header {
+    .headline {
+      @media screen and (max-width: 350px) {
+        font-size: 18px;
+      }
+      @media screen and (min-width: 350px) and (max-width: 500px) {
+        font-size: 18px;
+      }
+      @media screen and (min-width: 500px) and (max-width: 560px) {
+        font-size: 25px;
+      }
+      @media screen and (min-width: 560px) and (max-width: 768px) {
+        font-size: 28px;
+      }
+      @media screen and (min-width: 768px) and (max-width: 992px) {;
+        font-size: 33px;
+      }
+      @media screen and (min-width: 992px) {
+        font-size: 35px;
+      }
+    }
+  }
+  .navigation-body {
+
+  }
+}
+
+.dietPrescription{
+  position: relative;
+  z-index:6100;
+  .headlineDiet{
+    color:white;
+    @media screen and (max-width: 350px) {
+      font-size: 18px;
+    }
+    @media screen and (min-width: 350px) and (max-width: 500px) {
+      font-size: 18px;
+    }
+    @media screen and (min-width: 500px) and (max-width: 560px) {
+      font-size: 20px;
+    }
+    @media screen and (min-width: 560px) and (max-width: 768px) {
+      font-size: 22px;
+    }
+    @media screen and (min-width: 768px) and (max-width: 992px) {;
+      font-size: 24px;
+    }
+    @media screen and (min-width: 992px) {
+      font-size: 26px;
+    }
+  }
+  .diet_description{
+    color: rgba(200,200,200,1);
+    @media screen and (max-width: 350px) {
+      font-size: 15px;
+    }
+    @media screen and (min-width: 350px) and (max-width: 500px) {
+      font-size: 15px;
+    }
+    @media screen and (min-width: 500px) and (max-width: 560px) {
+      font-size: 16px;
+    }
+    @media screen and (min-width: 560px) and (max-width: 768px) {
+      font-size: 18px;
+    }
+    @media screen and (min-width: 768px) and (max-width: 992px) {;
+      font-size: 20px;
+    }
+    @media screen and (min-width: 992px) {
+      font-size: 20px;
+    }
+  }
+}

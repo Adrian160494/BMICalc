@@ -3,7 +3,7 @@ var app = angular.module('app',["ngRoute"]);
 app.config(function ($routeProvider) {
 
     $routeProvider.when('/',{
-        templateUrl: 'index.php'
+        templateUrl: 'index.html'
     });
 
     $routeProvider.otherwise({
@@ -16,7 +16,7 @@ app.controller('mainCtrl',['$scope','$http','$location','$interval','$timeout', 
     $scope.viewFlag = false;
     $scope.loginPanel = false;
     $scope.calculations = null;
-    $scope.includeView = 'View/formBMR.php';
+    $scope.includeView = './View/formBMR.html';
     $scope.dataToHistory = null;
     $scope.today = new Date();
     $scope.monthToday = $scope.today.getMonth();
@@ -186,18 +186,10 @@ app.controller('mainCtrl',['$scope','$http','$location','$interval','$timeout', 
             .then(function (response) {
                 $scope.calculations = response.data;
                 $scope.viewFlag = true;
-                $scope.includeView = 'View/calculate.php';
+                $scope.includeView = 'View/calculate.html';
             })
     };
 
-    $scope.releaseDiv = function () {
-        $scope.div = $('.loginInfo');
-        if ($scope.div.css("display") == "none") {
-            $scope.div.show('blind', 1000);
-        } else {
-            $scope.div.hide("blind", 1000);
-        }
-    }
 
     $scope.showLogin = function () {
         $scope.formLogin = $("#loginForm");
@@ -281,20 +273,20 @@ app.controller('mainCtrl',['$scope','$http','$location','$interval','$timeout', 
     $scope.chooseView = function (text) {
         switch (text) {
             case 1:
-                $scope.includeView = 'View/formBMR.php';
+                $scope.includeView = 'View/formBMR.html';
                 break;
             case 2:
                 $scope.getDataOfHistory();
-                $scope.includeView = 'View/history.php';
+                $scope.includeView = 'View/history.html';
                 break;
             case 3:
                 $scope.getDataToWorkout();
                 $scope.showCallendar();
-                $scope.includeView = 'View/training.php';
+                $scope.includeView = 'View/training.html';
                 break;
             case 4:
                 $scope.showCallendarDiet();
-                $scope.includeView = 'View/diet.php';
+                $scope.includeView = 'View/diet.html';
                 break;
         }
     };
@@ -386,7 +378,7 @@ app.controller('mainCtrl',['$scope','$http','$location','$interval','$timeout', 
                 $(idButton).css('border','6px solid red');
                     $scope.idDiv = array2[parseInt(month2)][day2].id;
                     var text = array2[parseInt(month2)][day2];
-                    var textToFill = "<div style='margin-top: 20px; background-color: rgba(100,100,100,0.5); border:4px solid white; font-family: Kalam, cursive;'><p style='font-size: 25px; color: white'>BREAKFAST: </p><p>"+text.breakfast+"</p><p style='font-size: 25px; color: white'> LUNCH: </p><p>"+text.lunch+"</p><p style='font-size: 25px; color: white'>DINNER: </p><p>"+text.dinner+"</p><p style='font-size: 25px; color: white'>SECOND DINNER: </p><p>"+text.dinner2+"</p><p style='font-size: 25px; color: white'>SUPPER: </p><p >"+text.supper+"</p></div>";
+                    var textToFill = "<div class='diet-box'><p class='headlineDiet'>BREAKFAST: </p><p class='diet_description'>"+text.breakfast+"</p><p class='headlineDiet'> LUNCH: </p><p class='diet_description'>"+text.lunch+"</p><p class='headlineDiet'>DINNER: </p><p class='diet_description'>"+text.dinner+"</p><p class='headlineDiet'>SECOND DINNER: </p><p class='diet_description'>"+text.dinner2+"</p><p class='headlineDiet'>SUPPER: </p><p class='diet_description'>"+text.supper+"</p></div>";
                     $(idDivToFill).html(textToFill);
                     $(idButton).attr('disabled','disabled').attr('href','#');
                     var aButton = "#a-"+day2+"-"+month2;

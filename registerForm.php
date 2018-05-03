@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/styles.css"/>
     <link rel="stylesheet" href="bootstrap/bootstrap-3.3.7-dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="bootstrap/bootstrap-3.3.7-dist/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="css/styles2.css"/>
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
@@ -22,7 +23,7 @@
 </head>
 <body ng-controller="mainCtrl" ng-cloak>
 <div class="container">
-    <div class="navigation">
+    <div class="navigation navigation2">
         <div class="navigation-header text-center">
             <h2 class="headline">Create new account!</h2>
         </div>
@@ -60,13 +61,13 @@
                         <button type="reset" class="btn btn-danger">Reset</button>
                         <span class="alert-danger" ng-show="errorFlag">{{registerError}}</span>
                         <p><span class="" ng-show="information">{{information}}{{return}}</span></p>
-                        <p><span class="label label-info font" ng-show="information"><a href="index.php">Return to Home Page!</a></span></p>
+                        <p><span class="label label-info font" ng-show="information"><a href="index.html">Return to Home Page!</a></span></p>
                     </div>
             </form>
         </div>
         <div class="navigation-footer text-center">
             <div class="btn btn-info ">
-                <a href="index.php">Return <span class="glyphicon glyphicon-arrow-right"></span></a>
+                <a href="index.html">Return <span class="glyphicon glyphicon-arrow-right"></span></a>
             </div>
         </div>
 

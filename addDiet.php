@@ -18,6 +18,7 @@ $_SESSION['month2'] = $_GET['month'];
     <link rel="stylesheet" href="css/styles.css"/>
     <link rel="stylesheet" href="bootstrap/bootstrap-3.3.7-dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="bootstrap/bootstrap-3.3.7-dist/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="css/styles2.css"/>
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
@@ -31,9 +32,9 @@ $_SESSION['month2'] = $_GET['month'];
 </head>
 <body ng-controller="mainCtrl">
 <div class="container">
-    <div class="navigation">
+    <div class="navigation navigation2">
         <div class="navigation-header text-center">
-            <h2 class="headline">Add your workout!</h2>
+            <h2 class="headline" style="font-family: 'Fredericka the Great', cursive;">Add your diet for the day!</h2>
         </div>
         <div class="navigation-body">
             <form name="myForm2" class="form-horizontal" novalidate ng-submit="addDiet(newDiet)">
@@ -103,7 +104,7 @@ $_SESSION['month2'] = $_GET['month'];
         </div>
         <div class="navigation-footer text-center">
             <div class="btn btn-info ">
-                <a href="index.php">Return <span class="glyphicon glyphicon-arrow-right"></span></a>
+                <a href="index.html">Return <span class="glyphicon glyphicon-arrow-right"></span></a>
             </div>
         </div>
         <div class="panel-default modal fade" id="myModalDiet" role="dialog">
@@ -113,7 +114,7 @@ $_SESSION['month2'] = $_GET['month'];
                 </div>
                 <div class="modal-body text-center">
                     <p>The new diet has been added! Return to the home page</p>
-                    <p class="text-center"><button class="btn btn-success"><a href="index.php">Return</a></button></p>
+                    <p class="text-center"><button class="btn btn-success"><a href="index.html">Return</a></button></p>
                 </div>
             </div>
 

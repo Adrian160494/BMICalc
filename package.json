@@ -1,0 +1,24 @@
+{
+  "name": "bmicalc",
+  "version": "1.0.0",
+  "description": "The application which give us the possibility to calculate our body BMI and store the results in local database, and give us possibility to planning our training.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adrian160494/BMICalc.git"
+  },
+  "author": "Adrian Ciejka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Adrian160494/BMICalc/issues"
+  },
+  "homepage": "https://github.com/Adrian160494/BMICalc#readme",
+  "devDependencies": {
+    "browser-sync": "^2.23.7",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1"
+  }
+}

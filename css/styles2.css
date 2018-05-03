@@ -1,0 +1,293 @@
+@import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great");
+@import url("https://fonts.googleapis.com/css?family=Frijole");
+body .loginPanel-container {
+  width: 100%; }
+  @media screen and (max-width: 350px) {
+    body .loginPanel-container {
+      height: 130px; } }
+  @media screen and (min-width: 350px) and (max-width: 500px) {
+    body .loginPanel-container {
+      height: 130px; } }
+  @media screen and (min-width: 500px) and (max-width: 560px) {
+    body .loginPanel-container {
+      height: 180px; } }
+  @media screen and (min-width: 560px) and (max-width: 768px) {
+    body .loginPanel-container {
+      height: 180px; } }
+  @media screen and (min-width: 768px) {
+    body .loginPanel-container {
+      height: 140px; } }
+  body .loginPanel-container #loginPanel2 {
+    border: 1px solid gray;
+    -webkit-box-shadow: 0 0 20px 4px white;
+    -moz-box-shadow: 0 0 30px 9px white;
+    box-shadow: 0 0 20px 4px white;
+    padding: 10px;
+    background: black;
+    z-index: 1001; }
+    @media screen and (max-width: 350px) {
+      body .loginPanel-container #loginPanel2 {
+        position: relative;
+        margin: 0 50px; } }
+    @media screen and (min-width: 350px) and (max-width: 500px) {
+      body .loginPanel-container #loginPanel2 {
+        position: relative;
+        margin: 0 50px; } }
+    @media screen and (min-width: 500px) and (max-width: 560px) {
+      body .loginPanel-container #loginPanel2 {
+        position: absolute;
+        width: 320px;
+        left: calc(50% - 160px); } }
+    @media screen and (min-width: 560px) and (max-width: 768px) {
+      body .loginPanel-container #loginPanel2 {
+        position: absolute;
+        width: 360px;
+        left: calc(50% - 190px); } }
+    @media screen and (min-width: 768px) {
+      body .loginPanel-container #loginPanel2 {
+        width: 400px;
+        left: calc(50% - 200px);
+        position: absolute; } }
+    @media screen and (max-width: 350px) {
+      body .loginPanel-container #loginPanel2 button, body .loginPanel-container #loginPanel2 input {
+        font-size: 12px; } }
+    @media screen and (min-width: 350px) and (max-width: 500px) {
+      body .loginPanel-container #loginPanel2 button, body .loginPanel-container #loginPanel2 input {
+        font-size: 12px; } }
+    @media screen and (min-width: 500px) and (max-width: 560px) {
+      body .loginPanel-container #loginPanel2 button, body .loginPanel-container #loginPanel2 input {
+        font-size: 12px; } }
+    @media screen and (min-width: 560px) and (max-width: 768px) {
+      body .loginPanel-container #loginPanel2 button, body .loginPanel-container #loginPanel2 input {
+        font-size: 12px; } }
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+      body .loginPanel-container #loginPanel2 button, body .loginPanel-container #loginPanel2 input {
+        font-size: 12px; } }
+    @media screen and (min-width: 992px) {
+      body .loginPanel-container #loginPanel2 button, body .loginPanel-container #loginPanel2 input {
+        font-size: 13px; } }
+body .form-bmr .bmr-heading {
+  font-family: 'Fredericka the Great', cursive; }
+  @media screen and (max-width: 350px) {
+    body .form-bmr .bmr-heading h1 {
+      font-size: 15px; } }
+  @media screen and (min-width: 350px) and (max-width: 500px) {
+    body .form-bmr .bmr-heading h1 {
+      font-size: 18px; } }
+  @media screen and (min-width: 500px) and (max-width: 560px) {
+    body .form-bmr .bmr-heading h1 {
+      font-size: 25px; } }
+  @media screen and (min-width: 560px) and (max-width: 768px) {
+    body .form-bmr .bmr-heading h1 {
+      font-size: 28px; } }
+  @media screen and (min-width: 768px) and (max-width: 992px) {
+    body .form-bmr .bmr-heading h1 {
+      font-size: 33px; } }
+  @media screen and (min-width: 992px) {
+    body .form-bmr .bmr-heading h1 {
+      font-size: 35px; } }
+  @media screen and (max-width: 350px) {
+    body .form-bmr .bmr-heading h3 {
+      display: none; } }
+  @media screen and (min-width: 350px) and (max-width: 500px) {
+    body .form-bmr .bmr-heading h3 {
+      display: none; } }
+  @media screen and (min-width: 500px) and (max-width: 560px) {
+    body .form-bmr .bmr-heading h3 {
+      font-size: 15px; } }
+  @media screen and (min-width: 560px) and (max-width: 768px) {
+    body .form-bmr .bmr-heading h3 {
+      font-size: 18px; } }
+  @media screen and (min-width: 768px) and (max-width: 992px) {
+    body .form-bmr .bmr-heading h3 {
+      font-size: 25px; } }
+  @media screen and (min-width: 992px) {
+    body .form-bmr .bmr-heading h3 {
+      font-size: 26px; } }
+@media screen and (max-width: 350px) {
+  body .form-bmr .navigation .navigation-header .headline {
+    font-size: 18px; } }
+@media screen and (min-width: 350px) and (max-width: 500px) {
+  body .form-bmr .navigation .navigation-header .headline {
+    font-size: 18px; } }
+@media screen and (min-width: 500px) and (max-width: 560px) {
+  body .form-bmr .navigation .navigation-header .headline {
+    font-size: 25px; } }
+@media screen and (min-width: 560px) and (max-width: 768px) {
+  body .form-bmr .navigation .navigation-header .headline {
+    font-size: 28px; } }
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  body .form-bmr .navigation .navigation-header .headline {
+    font-size: 33px; } }
+@media screen and (min-width: 992px) {
+  body .form-bmr .navigation .navigation-header .headline {
+    font-size: 35px; } }
+body .loggedIn p, body .loggedIn a {
+  color: white; }
+  @media screen and (max-width: 350px) {
+    body .loggedIn p, body .loggedIn a {
+      font-size: 12px; } }
+  @media screen and (min-width: 350px) and (max-width: 500px) {
+    body .loggedIn p, body .loggedIn a {
+      font-size: 13px; } }
+  @media screen and (min-width: 500px) and (max-width: 560px) {
+    body .loggedIn p, body .loggedIn a {
+      font-size: 14px; } }
+  @media screen and (min-width: 560px) and (max-width: 768px) {
+    body .loggedIn p, body .loggedIn a {
+      font-size: 15px; } }
+  @media screen and (min-width: 768px) and (max-width: 992px) {
+    body .loggedIn p, body .loggedIn a {
+      font-size: 17px; } }
+  @media screen and (min-width: 992px) {
+    body .loggedIn p, body .loggedIn a {
+      font-size: 18px; } }
+@media screen and (max-width: 350px) {
+  body .loggedIn #loggedIn {
+    font-size: 14px; } }
+@media screen and (min-width: 350px) and (max-width: 500px) {
+  body .loggedIn #loggedIn {
+    font-size: 15px; } }
+@media screen and (min-width: 500px) and (max-width: 560px) {
+  body .loggedIn #loggedIn {
+    font-size: 16px; } }
+@media screen and (min-width: 560px) and (max-width: 768px) {
+  body .loggedIn #loggedIn {
+    font-size: 17px; } }
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  body .loggedIn #loggedIn {
+    font-size: 19px; } }
+@media screen and (min-width: 992px) {
+  body .loggedIn #loggedIn {
+    font-size: 20px; } }
+body .navbar-header .navHead {
+  font-family: 'Frijole', cursive; }
+  @media screen and (max-width: 350px) {
+    body .navbar-header .navHead {
+      font-size: 23px; } }
+  @media screen and (min-width: 350px) and (max-width: 500px) {
+    body .navbar-header .navHead {
+      font-size: 25px; } }
+  @media screen and (min-width: 500px) and (max-width: 560px) {
+    body .navbar-header .navHead {
+      font-size: 28px; } }
+  @media screen and (min-width: 560px) and (max-width: 768px) {
+    body .navbar-header .navHead {
+      font-size: 31px; } }
+  @media screen and (min-width: 768px) and (max-width: 992px) {
+    body .navbar-header .navHead {
+      font-size: 34px; } }
+  @media screen and (min-width: 992px) {
+    body .navbar-header .navHead {
+      font-size: 35px; } }
+body .navbar-collapse .navbar-nav li {
+  font-family: 'Frijole', cursive; }
+  @media screen and (max-width: 350px) {
+    body .navbar-collapse .navbar-nav li {
+      font-size: 15px; } }
+  @media screen and (min-width: 350px) and (max-width: 500px) {
+    body .navbar-collapse .navbar-nav li {
+      font-size: 16px; } }
+  @media screen and (min-width: 500px) and (max-width: 560px) {
+    body .navbar-collapse .navbar-nav li {
+      font-size: 17px; } }
+  @media screen and (min-width: 560px) and (max-width: 768px) {
+    body .navbar-collapse .navbar-nav li {
+      font-size: 20px; } }
+  @media screen and (min-width: 768px) and (max-width: 992px) {
+    body .navbar-collapse .navbar-nav li {
+      font-size: 21px; } }
+  @media screen and (min-width: 992px) {
+    body .navbar-collapse .navbar-nav li {
+      font-size: 23px; } }
+
+.page-header h1 {
+  font-family: 'Fredericka the Great', cursive;
+  letter-spacing: 6px;
+  text-shadow: 0 10px 20px white; }
+  @media screen and (max-width: 350px) {
+    .page-header h1 {
+      font-size: 23px; } }
+  @media screen and (min-width: 350px) and (max-width: 500px) {
+    .page-header h1 {
+      font-size: 25px; } }
+  @media screen and (min-width: 500px) and (max-width: 560px) {
+    .page-header h1 {
+      font-size: 28px; } }
+  @media screen and (min-width: 560px) and (max-width: 768px) {
+    .page-header h1 {
+      font-size: 31px; } }
+  @media screen and (min-width: 768px) and (max-width: 992px) {
+    .page-header h1 {
+      font-size: 34px; } }
+  @media screen and (min-width: 992px) {
+    .page-header h1 {
+      font-size: 38px; } }
+
+.navigation2 {
+  box-shadow: 0 0 10px 5px white;
+  margin: 30px; }
+  @media screen and (max-width: 350px) {
+    .navigation2 .navigation-header .headline {
+      font-size: 18px; } }
+  @media screen and (min-width: 350px) and (max-width: 500px) {
+    .navigation2 .navigation-header .headline {
+      font-size: 18px; } }
+  @media screen and (min-width: 500px) and (max-width: 560px) {
+    .navigation2 .navigation-header .headline {
+      font-size: 25px; } }
+  @media screen and (min-width: 560px) and (max-width: 768px) {
+    .navigation2 .navigation-header .headline {
+      font-size: 28px; } }
+  @media screen and (min-width: 768px) and (max-width: 992px) {
+    .navigation2 .navigation-header .headline {
+      font-size: 33px; } }
+  @media screen and (min-width: 992px) {
+    .navigation2 .navigation-header .headline {
+      font-size: 35px; } }
+
+.dietPrescription {
+  position: relative;
+  z-index: 6100; }
+  .dietPrescription .headlineDiet {
+    color: white; }
+    @media screen and (max-width: 350px) {
+      .dietPrescription .headlineDiet {
+        font-size: 18px; } }
+    @media screen and (min-width: 350px) and (max-width: 500px) {
+      .dietPrescription .headlineDiet {
+        font-size: 18px; } }
+    @media screen and (min-width: 500px) and (max-width: 560px) {
+      .dietPrescription .headlineDiet {
+        font-size: 20px; } }
+    @media screen and (min-width: 560px) and (max-width: 768px) {
+      .dietPrescription .headlineDiet {
+        font-size: 22px; } }
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+      .dietPrescription .headlineDiet {
+        font-size: 24px; } }
+    @media screen and (min-width: 992px) {
+      .dietPrescription .headlineDiet {
+        font-size: 26px; } }
+  .dietPrescription .diet_description {
+    color: #c8c8c8; }
+    @media screen and (max-width: 350px) {
+      .dietPrescription .diet_description {
+        font-size: 15px; } }
+    @media screen and (min-width: 350px) and (max-width: 500px) {
+      .dietPrescription .diet_description {
+        font-size: 15px; } }
+    @media screen and (min-width: 500px) and (max-width: 560px) {
+      .dietPrescription .diet_description {
+        font-size: 16px; } }
+    @media screen and (min-width: 560px) and (max-width: 768px) {
+      .dietPrescription .diet_description {
+        font-size: 18px; } }
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+      .dietPrescription .diet_description {
+        font-size: 20px; } }
+    @media screen and (min-width: 992px) {
+      .dietPrescription .diet_description {
+        font-size: 20px; } }
+
+/*# sourceMappingURL=styles2.css.map */

@@ -60,9 +60,9 @@ for($i=0;$i<$numberOfDays;$i++){
         $counter =0;
     }
     if($counter==0 && $i>9){
-        $callendar .= "<div class='daysS col-md-1 col-sm-1 ' content='$id,$month'><a class='addedClass' id='$id-$month' href='addTraining.php?day=".$id."&month=".$month."' style='color: red' >".$id."</a><span class='dayHide' style='color: red'>".$arraysDay[$counter]."</span><p id='".$id."-".$month."'></p></div>";
+        $callendar .= "<div class='daysS col-md-1 col-sm-1 ' content='$id,$month'><a class='hrefCallendar' id='$id-$month' href='addTraining.php?day=".$id."&month=".$month."' style='color: red' >".$id."</a><span class='dayHide' style='color: red'>".$arraysDay[$counter]."</span><p id='".$id."-".$month."'></p></div>";
     } else if($counter==6 && $i>9){
-		$callendar .= "<div class='daysS col-md-1 col-sm-1 ' content='$id,$month'><a class='addedClass' id='$id-$month' href='addTraining.php?day=".$id."&month=".$month."' style='color: red' >".$id."</a><span class='dayHide' style='color: red'>".$arraysDay[$counter]."</span><p id='".$id."-".$month."'></p></div>";
+		$callendar .= "<div class='daysS col-md-1 col-sm-1 ' content='$id,$month'><a class='hrefCallendar' id='$id-$month' href='addTraining.php?day=".$id."&month=".$month."' style='color: red' >".$id."</a><span class='dayHide' style='color: red'>".$arraysDay[$counter]."</span><p id='".$id."-".$month."'></p></div>";
 	} else if($counter==6 && $i<9){
 		$callendar .= "<div class='daysS col-md-1 col-sm-1 ' content='$id,$month'><a class='hrefCallendar' id='$id-$month' href='addTraining.php?day=".$id."&month=".$month."' style='color: red' >".$id."</a><span class='dayHide' style='color: red'>".$arraysDay[$counter]."</span><p id='".$id."-".$month."'></p></div>";
 	}else if($counter==0 && $i<9){
@@ -73,7 +73,7 @@ for($i=0;$i<$numberOfDays;$i++){
 		} else if($counter==6 && $i>8){
 			$callendar .= "<div class='daysR col-md-1 col-sm-1 ' content='$id,$month'><a class='addedClass' id='$id-$month' href='addTraining.php?day=".$id."&month=".$month."'>".$id."</a><span class='dayHide'>".$arraysDay[$counter]."</span><p id='".$id."-".$month."'></p></div>";
 		} else if($i>8){
-			$callendar .= "<div class='daysR col-md-1 col-sm-1 ' content='$id,$month'><a class='addedClass' id='$id-$month' href='addTraining.php?day=".$id."&month=".$month."'>".$id."</a><span class='dayHide'>".$arraysDay[$counter]."</span><p id='".$id."-".$month."'></p></div>";
+			$callendar .= "<div class='daysR col-md-1 col-sm-1 ' content='$id,$month'><a class='hrefCallendar' id='$id-$month' href='addTraining.php?day=".$id."&month=".$month."'>".$id."</a><span class='dayHide'>".$arraysDay[$counter]."</span><p id='".$id."-".$month."'></p></div>";
 		} else {
 			$callendar .= "<div class='daysR col-md-1 col-sm-1 ' content='$id,$month'><a class='hrefCallendar' id='$id-$month' href='addTraining.php?day=".$id."&month=".$month."'>".$id."</a><span class='dayHide'>".$arraysDay[$counter]."</span><p id='".$id."-".$month."'></p></div>";
 		}
